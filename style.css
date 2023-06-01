@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+.logo-girl {
+    background-image: url("images/comb.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left center;
+    height: 58px;
+    width: 58px;
+    margin-right: 10px;
+    position: relative;
+    top: 5px;
+}
+
+.logo {
+    height: 58px;
+    width: 215px;
+    margin-left: 10px;
+}
+.logo-bg {
+    width: 300px; /* Increase or decrease this value as needed */
+}
+
+span.logo {
+    font-size: 40px;
+    font-family: 'Pacifico', cursive;
+    color: #FF7F50;
+    position: relative;
+    left: -25px;
+}
+
+nav {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+}
+
+.links::after {
+    position: absolute; /* Change to absolute */
+    content: "";
+    height: 3px;
+    background-color: blueviolet;
+    bottom: 0px;
+    left: 0; /* Adjust the left property */
+    width: 0;
+    transition: width 0.5s ease-out; /* Adjust the transition properties */
+}
+
+
+nav ul {
+     
+    height: 58px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    top: 0px;
+    margin: auto;
+    position: relative;
+    left: 175px;
+} 
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: #333333;
+    /* padding: 0 15px; */
+    text-decoration: none;
+    font-size: 23px;
+    position: relative;
+    padding-right: 50px;
+     
+}
+
+nav ul li a:hover {
+    color: #FF1493;
+    font-weight: 500;
+}
+
+nav ul li a:hover::after {
+    width: calc(100% - 50px);
+}
+
+footer {
+    height: 20vh;
+    font-family: 'Lato', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+.text-all-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Hides horizontal scrollbar */
+}
+
+.bg-img {
+    background-image: url("images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
