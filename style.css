@@ -94,6 +94,8 @@ nav ul li a:hover::after {
     width: calc(100% - 50px);
 }
 
+ 
+
 footer {
     height: 20vh;
     font-family: 'Lato', sans-serif;
