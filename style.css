@@ -8,7 +8,7 @@
 header {
     position: fixed;
     width: 100%;
-    z-index: 999;
+     
 }
 
 .logo-girl {
@@ -94,7 +94,34 @@ nav ul li a:hover::after {
     width: calc(100% - 50px);
 }
 
- 
+.slideshow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: slideshow 7s infinite;
+    text-align: center;
+
+}
+
+.slideshow h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 80px;
+    color: #FF1493;
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+}
+
+@keyframes slideshow {
+    0%, 100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9-);
+    }
+    20%,80% {
+        opacity: 1;
+        transform: translate(-50%, -50%)  scale(1) ;
+    }
+}
+
 
 footer {
     height: 20vh;
