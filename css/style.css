@@ -13,7 +13,7 @@ header {
 }
 
 .logo-girl {
-    background-image: url("/images/comb.png");
+    background-image: url("./../images/comb.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: left center;
@@ -230,7 +230,7 @@ body {
 }
 
 .bg-img {
-    background-image: url("/images/bg.jpg");
+    background-image: url("./../images/bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
