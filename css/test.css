@@ -19,7 +19,7 @@ header {
 }
 
 .logo-girl {
-    background-image: url("./../images/comb.png");
+    background-image: url("images/comb.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: left center;
