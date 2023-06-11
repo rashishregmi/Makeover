@@ -151,10 +151,9 @@ h1{
 
 .service-box img{
     height: 300px;
-    width: 300px;
-    
-    
+    width: 300px; 
 } 
+
 /* Our services */
 .container{
     width:100%;
