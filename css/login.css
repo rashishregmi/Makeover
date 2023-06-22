@@ -98,3 +98,26 @@
       background-color: #32941d;
     }
    
+    
+
+.password-input {
+  position: relative;
+}
+
+.password-input input[type="password"] {
+  padding-right: 30px;
+}
+
+.password-input .toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #999;
+  cursor: pointer;
+}
+
+.password-input .toggle-password:hover {
+  color: #555;
+}
+

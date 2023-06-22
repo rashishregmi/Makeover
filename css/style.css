@@ -32,7 +32,7 @@ header {
 .logo-bg {
     display: flex;
     align-items: center;
-    width: 300px; /* Increase or decrease this value as needed */
+    width: fit-content;
 }
 
 span.logo {
@@ -52,6 +52,9 @@ nav {
     display: flex;
     background-color:  rgba(255, 255, 255, 0.8);
     width: 100%;
+    justify-content: space-between;
+    padding-left: 10px;
+    align-items: center;
 }
 
 .links::after {
@@ -70,13 +73,9 @@ nav ul {
      
     height: 60px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     list-style: none;
-    top: 0px;
-    margin: auto;
-    position: relative;
-    left: 175px;
+    margin-right: 10px;
 } 
 
 nav ul li {
@@ -85,7 +84,6 @@ nav ul li {
 
 nav ul li a {
     color: #333333;
-    /* padding: 0 15px; */
     text-decoration: none;
     font-size: 26px;
     position: relative;
@@ -157,18 +155,17 @@ nav ul li a:hover::after {
     color: #666666;
 }
 
+
 .intro h2 {
     font-size: 22px;
     color: rgb(51, 51, 51);
-    margin-top: 10px;
+    margin-top: 0px;
     padding-bottom: 10px;
     font-family: 'Lato', sans-serif;
     font-weight: bold;
 }
-/* .info-container {
-    margin-top: 20px;
-} */
-
+ 
+ 
 .info {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
@@ -245,8 +242,6 @@ body {
 .quote-line{
      font-size: 22px;
     color: rgb(51, 51, 51);
-    margin-top: 10px;
-    padding-bottom: 10px;
     font-family: 'Lato', sans-serif;
     font-weight: bold;
 }
