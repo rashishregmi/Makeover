@@ -170,6 +170,7 @@ nav ul li a:hover::after {
 }
  
  footer{
+     
     height: 100%;
     width: 100%;
     background-color: rgb(33, 33, 33); 
@@ -186,16 +187,59 @@ nav ul li a:hover::after {
      
     height: 100%;
     width: 50%;
-    color: aliceblue; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+     position: relative;
+     left: 10rem; 
  }
 
- .box2{
-    height: 100%;
-    width: 50%;
-    background-color: blue;
-    color: aliceblue;
+    .box1-heading{
+        font-size: 1.25rem;
+        padding-bottom: 0.4rem;
+    }
+
+    .box1-info{
+        color: #d2d2d2;
+        font-size: large;
+    }
+
+
+    .box2{
+     
+        height: 100%;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+         background-color: rgb(33, 33, 33);
+     }
+
+ .box2-heading{
+    font-size: 1.23rem;
+    position: absolute;
+    top: 1.5rem;
+    left: 50%;
+}
+
+.social-media ul li a img{
+    margin-top: 0.5rem;
+    height: 2rem;
+    width: 2rem;
     
- }
+}
+
+.social-media ul li {
+    list-style: none;
+    margin: 0 0.2rem;
+}
+
+.social-media ul{
+    display: flex;
+    position: absolute;
+    top: 3rem;
+    left: 49%
+}
 
  .copyright{
      /* padding-bottom: 1rem; */
