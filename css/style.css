@@ -216,9 +216,9 @@ nav ul li a:hover::after {
      }
 
  .box2-heading{
-    font-size: 1.23rem;
+    font-size: 1.25rem;
     position: absolute;
-    top: 1.5rem;
+    top: 1.7rem;
     left: 50%;
 }
 
