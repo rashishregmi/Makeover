@@ -215,12 +215,12 @@ nav ul li a:hover::after {
          background-color: rgb(33, 33, 33);
      }
 
- .box2-heading{
-    font-size: 1.25rem;
-    position: absolute;
-    top: 1.7rem;
-    left: 50%;
-}
+     .box2-heading{
+        font-size: 1.22rem;
+        position: absolute;
+        top: 1.6rem;
+        left: 50%;
+    }
 
 .social-media ul li a img{
     margin-top: 0.5rem;
