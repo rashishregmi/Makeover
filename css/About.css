@@ -104,50 +104,41 @@ nav ul li a:hover::after {
 }
 
  
-/* our services  */
+ .intro{
+padding: 1rem 0;
+background-color: #E8E8E8;
+ }
+
 h1{
     text-align:center;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size:  60px;
     color:white;
 }
-.rowcontainer{
-background-color: #E8E8E8;
 
-}
-
- .row{
-    margin:10px;
-    display: grid;
-    grid-template-columns: repeat(2,minmax(250px,1fr));
-    justify-content: space-between;
-    align-items: center;
-
-    
-}
-
-.service-box img{
-    height: 300px;
-    width: 300px; 
-} 
-
-/* Our services */
 .heading-container{
     width:100%;
     padding-top: 60px;
     background-color: black;
-} 
+}  
 
-.col-sm-2{
-    width: 50%;
-    background-color:black;
-    padding-top:30px;
-    padding-left:30px;
-    padding-bottom: 10px;
-    position: relative;
-    left: 150px;
+.heading{
+ text-align: center;
+    padding: 1rem 0;
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #4C4C4C;
 }
 
+.info{
+    text-align: center;
+    font-size: 1.25rem;
+    margin-left: 15rem;
+    margin-right: 15rem;
+    line-height: 1.5;
+    color: #666666;
+}
+ 
 /* Footer */
 
 .footer-container{
