@@ -173,6 +173,19 @@ h1{
 }
 
 .row-contain{
+    background-color:#E8E8E8;
+    }
+    
+table{
+    text-align:justify;
+    background-color:lightgray;
+    position: relative;
+    padding-top:20px;
+    padding-bottom: 20px;
+    right: 50px;
+}
+
+.row-contain{
 background-color:#E8E8E8;
 }
 
