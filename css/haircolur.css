@@ -172,6 +172,9 @@ h1{
     left: 50px;
 }
 
+ .row-contain{
+    background-color: #E8E8E8;
+ }
 table{
     text-align:justify;
     background-color:lightgray;
