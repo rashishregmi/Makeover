@@ -176,6 +176,14 @@ h1{
 background-color:#E8E8E8;
 }
 
+table{
+    text-align:justify;
+    background-color:lightgray;
+    position: relative;
+    padding: 1.5rem 0;
+    right: 2rem;
+    font-size: 1.1rem;
+}
 /* footer */
 
 .footer-container{
