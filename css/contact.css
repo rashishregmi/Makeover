@@ -290,7 +290,8 @@ form{
      border-radius: 10px;
      outline:none; 
      background-color: #f4f3f3;
-     text-align: center;
+     text-align: left;
+     text-indent: 1rem;
       
 }
  
@@ -304,7 +305,9 @@ form{
      border-radius: 10px;
      outline:none; 
      background-color: #f4f3f3;
-     text-align: center;
+     text-align: left;
+     text-indent: 1rem;
+     padding-top: 0.5rem;
 
 }
 
@@ -324,6 +327,10 @@ form{
     border:none;
     cursor:pointer;
     width: 20%;
+}
+
+.btn:hover {
+    background-color: #ddd;
 }
 
 
