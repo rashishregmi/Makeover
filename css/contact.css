@@ -314,10 +314,18 @@ form{
 
 .information{
     position: absolute;
-    bottom: 30%;
-    left: 10%;
+     top: 5rem;
+     left: 7rem;
     
 }
+ .info-3{
+    margin: 1.125rem 0;
+ }
+ 
+.gmail{
+    text-decoration: none;
+}
+
 .row{
     position: relative;
      
