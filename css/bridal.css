@@ -184,8 +184,6 @@ table{
     right: 2rem;
     font-size: 1.1rem;
 }
-/* footer */
-
 .footer-container{
     height: 40vh;
     position: relative;
@@ -199,6 +197,15 @@ table{
     color: white;
     position: relative;
  }
+
+ .gmail{
+    text-decoration: none;
+    color: #d2d2d2;
+}
+
+.gmail:hover{
+color: lightblue;
+}
 
  .box-container{
     display: flex;

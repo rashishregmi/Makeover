@@ -214,6 +214,15 @@ h5{
    
   }
   
+  .gmail{
+    text-decoration: none;
+    color: #d2d2d2;
+}
+
+.gmail:hover{
+color: lightblue;
+}
+
   .social-media {
     margin-left: 80vw;
     margin-top: -165px;

@@ -155,6 +155,15 @@ h1{
     position: relative;
  }
 
+ .gmail{
+    text-decoration: none;
+    color: #d2d2d2;
+}
+
+.gmail:hover{
+color: lightblue;
+}
+
  .box-container{
     display: flex;
     height: 100%;

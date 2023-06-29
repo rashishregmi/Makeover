@@ -163,6 +163,21 @@ background-color: #E8E8E8;
     position: relative;
  }
 
+ .gmail1{
+    text-decoration: none;
+     
+}
+
+.gmail2{
+    text-decoration: none;
+    color: #d2d2d2;
+}
+
+.gmail2:hover{
+color: lightblue;
+}
+ 
+
  .box-container{
     display: flex;
     height: 100%;
