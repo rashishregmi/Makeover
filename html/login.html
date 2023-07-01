@@ -23,8 +23,13 @@
         <a href="#">Forgot password?</a>
       </div>
     </form>
-    <button class="create-account-btn" style="font-size: 17px;">Create a new account</button>
+    <button class="create-account-btn" style="font-size: 17px;" onclick="openRegisterPage()">Create new account</button>
   </div>
-  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+  <script>
+    function openRegisterPage() {
+      window.location.href = "signup.html";
+    }
+   
+  </script>
 </body>
 </html>

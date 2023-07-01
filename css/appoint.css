@@ -116,45 +116,25 @@ background-color: #E8E8E8;
 
 }
 
- .row{
-    margin:10px;
-    display: grid;
-    grid-template-columns: repeat(2,minmax(250px,1fr));
-    justify-content: space-between;
-    align-items: center;
+ 
 
-    
-}
-
-.service-box img{
-    height: 300px;
-    width: 300px; 
-} 
-
-/* Our services */
+ 
+ 
 .heading-container{
     width:100%;
     padding-top: 60px;
     background-color: black;
 } 
 
-.col-sm-2{
-    width: 50%;
-    background-color:black;
-    padding-top:30px;
-    padding-left:30px;
-    padding-bottom: 10px;
-    position: relative;
-    left: 150px;
-}
-
+ 
 /* main*/
+
 .appointment-container {
     margin: 40px auto;
     width: 100%;
     max-width: 50rem;
     padding: 20px;
-    background-color: #f2f2f2;
+    background-color: #F0F0F0;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   }
@@ -164,15 +144,8 @@ background-color: #E8E8E8;
     margin-bottom: 20px;
   }
   
-  .form-group {
-    margin-bottom: 20px;
-  }
   
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
+  
   
   input[type="text"],
   input[type="tel"],

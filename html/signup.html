@@ -8,24 +8,27 @@
   <div class="container">
     <h1>Makeover</h1>
     <form id="signup-form">
-      <label for="username"> </label>
-      <input type="text" id="username" placeholder="Enter a username" required>
-      
-      <label for="email"> </label>
-      <input type="email" id="email" placeholder="Enter your email" required>
-      
-      <label for="password"> </label>
-      <input type="password" id="password" placeholder="Enter a password" required>
-      
-      <label for="confirm-password"> </label>
-      <input type="password" id="confirm-password" placeholder="Confirm your password" required>
-      
+      <form action="connection.php" method="post">
+
+        <input type="text" id="fullname" placeholder="Full Name" required>
+
+    
+        <input type="text" id="username" placeholder="Username" required>
+
+        <input type="text" id="email" placeholder="Email" required>
+        
+         
+         
+        <input type="password" id="password" placeholder="Password" required>
+        
       <input type="submit" value="Sign Up" class="btn">
       
       <div class="login">
         <p>Already have an account? <a href="./login.html">Log in</a></p>
       </div>
     </form>
+  </form>
+
   </div>
 
   <script>
