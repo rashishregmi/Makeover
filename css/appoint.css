@@ -144,13 +144,14 @@ list-style: none;
 }
 
 .check-row li{
-padding-bottom: 10px;
+padding-bottom: 25px;
 font-size: 1.05rem;
 }
 
 ul.check-row li input[type="checkbox"] {
-    height: 15px;
-    width: 15px;
+    margin-top: .2rem;
+    height: 17px;
+    width: 17px;
 }
 
  .check-row-container{
@@ -162,7 +163,7 @@ ul.check-row li input[type="checkbox"] {
 .input-field{
     width:15rem;
     height: 45px;
-    margin: 20px 0;
+    margin: 23px 0;
      border: 1px solid #777;
      border-radius: 5px;
      outline:none; 
@@ -202,7 +203,7 @@ font-size: 0.9rem;
     margin: 2rem auto;
     width: 100%;
     max-width: 37rem;
-    height: 26rem;
+    height: 30rem;
     padding: 20px;
     background-color:  #F0F0F0;
     border-radius: 5px;
