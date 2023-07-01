@@ -287,7 +287,7 @@ form{
     height: 45px;
     margin: 20px 10px;
      border: 1px solid #777;
-     border-radius: 10px;
+     border-radius: 7px;
      outline:none; 
      background-color: #f4f3f3;
      text-align: left;
@@ -320,7 +320,7 @@ form{
 .btn{
     border-radius: 10px;
     padding: 10px;
-    background-color: #5f94f6;
+    background-color: hsl(212, 80%, 70%);
     position: relative;
     left:12.1rem;
     font-size: 1rem;
@@ -330,9 +330,10 @@ form{
 }
 
 .btn:hover {
-    background-color: #ddd;
-}
-
+    background-color: hsl(212, 80%, 50%);  
+    color: white;  
+      
+  }
 
 .information{
     position: absolute;

@@ -104,7 +104,7 @@ nav ul li a:hover::after {
 }
 
  
-/* our services  */
+ 
 h1{
     text-align:center;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -116,10 +116,6 @@ background-color: #E8E8E8;
 
 }
 
- 
-
- 
- 
 .heading-container{
     width:100%;
     padding-top: 60px;
@@ -129,14 +125,89 @@ background-color: #E8E8E8;
  
 /* main*/
 
+.main-container{
+    background-color: #E8E8E8;;
+}
+
+.form-row{
+display: flex;
+justify-content:space-between;
+ 
+
+}
+
+.check-row{
+display: flex;
+flex-direction: column;
+list-style: none;
+ 
+}
+
+.check-row li{
+padding-bottom: 10px;
+font-size: 1.05rem;
+}
+
+ul.check-row li input[type="checkbox"] {
+    height: 15px;
+    width: 15px;
+}
+
+ .check-row-container{
+    display: flex;
+    justify-content: space-between;
+     
+ }
+
+.input-field{
+    width:15rem;
+    height: 45px;
+    margin: 20px 0;
+     border: 1px solid #777;
+     border-radius: 5px;
+     outline:none; 
+     background-color: #f4f3f3;
+     text-align: left;
+     text-indent: 1rem;
+      
+}
+ 
+::placeholder{
+font-size: 0.9rem;
+
+}
+
+.btn {
+    border-radius: 1px;
+    background-color: hsl(212, 80%, 70%);
+    color: black;
+    border: 2px solid black;
+    cursor: pointer;
+    width: 30%;
+    height: 10%;
+    font-size: 1.025rem;
+    display: flex;
+    padding: 0.5rem;
+    position: absolute;
+    left: 68%;
+    margin-top: 0.5rem;
+  }
+  .btn:hover {
+    background-color: hsl(212, 80%, 50%);  
+    color: white;  
+    border: 2px solid hsl(212, 80%, 50%);  
+  }
+
 .appointment-container {
-    margin: 40px auto;
+    margin: 2rem auto;
     width: 100%;
-    max-width: 50rem;
+    max-width: 37rem;
+    height: 26rem;
     padding: 20px;
-    background-color: #F0F0F0;
+    background-color:  #F0F0F0;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    position: relative;
   }
   
   .appointment-container h2 {
@@ -145,22 +216,6 @@ background-color: #E8E8E8;
   }
   
   
-  
-  
-  input[type="text"],
-  input[type="tel"],
-  input[type="email"] {
-    width: 100%;
-    padding: 8px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-  }
-  
-  .checkbox-group {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 10px;
-  }
   
 
 /* Footer */
