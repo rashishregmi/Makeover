@@ -7,29 +7,41 @@
 <body>
   <div class="container">
     <h1>Makeover</h1>
-    <form>
+    <form action="../php/login.php" method="post" onsubmit="return validateForm()">
       <label for="username"> </label>
-      <input type="text" id="username" placeholder="Enter your username" required>
+      <input type="text" id="username" name="username" placeholder="Username" required>
 
       <label for="password"> </label>
       <div class="password-input">
-        <input type="password" id="password" placeholder="Enter your password" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
         <i class="fa-solid fa-eye"></i>
       </div>
 
       <input type="submit" value="Log In" class="btn">
-
-      <div class="forgot-password">
-        <a href="#">Forgot password?</a>
-      </div>
     </form>
     <button class="create-account-btn" style="font-size: 17px;" onclick="openRegisterPage()">Create new account</button>
   </div>
   <script>
     function openRegisterPage() {
-      window.location.href = "signup.html";
+      window.location.href = "../php/signup.php";
     }
 
+    function validateForm() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      if (username.trim() === '') {
+        alert('Please enter your username');
+        return false;
+      }
+
+      if (password.trim() === '') {
+        alert('Please enter your password');
+        return false;
+      }
+
+      return true;
+    }
   </script>
 </body>
 </html>
