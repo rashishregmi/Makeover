@@ -10,6 +10,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <script>
+        function validateForm() {
+            // Get form input values
+            var firstName = document.getElementById("firstname").value;
+            var lastName = document.getElementById("lastname").value;
+            var contact = document.getElementById("contact").value;
+            var email = document.getElementById("email").value;
+
+            // Validate first name and last name (non-empty)
+            if (firstName.trim() === "" || lastName.trim() === "") {
+                alert("Please enter your first name and last name.");
+                return false;
+            }
+
+            // Validate contact number (non-empty and numeric)
+            if (contact.trim() === "" || isNaN(contact)) {
+                alert("Please enter a valid contact number.");
+                return false;
+            }
+
+            // Validate email (non-empty and valid format)
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email.trim() === "" || !emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            // Validate at least one checkbox is selected
+            var topics = document.getElementsByName("topics");
+            var checkedTopics = false;
+            for (var i = 0; i < topics.length; i++) {
+                if (topics[i].checked) {
+                    checkedTopics = true;
+                    break;
+                }
+            }
+            if (!checkedTopics) {
+                alert("Please select at least one topic.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </head>
 
 <body>
