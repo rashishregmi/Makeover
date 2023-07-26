@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 
     if ($result->num_rows === 1) {
         // Username and Password matched, redirect to Appointment page
-        header("Location: ../html/appointment.html");
+        header("Location: ../html/Appointment.html");
         exit();
     } else {
         echo "Invalid username or password.";

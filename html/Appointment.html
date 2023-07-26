@@ -54,7 +54,8 @@
 
                 <div class="form-row">
 
-                    <input type="tel" id="contact" class="input-field" placeholder="Contact Number" required>
+                    <input type="tel" id="contact" class="input-field" placeholder="Contact Number" pattern="[9][87]\d{8}" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+
 
                     <div class="form-group">
 
@@ -123,15 +124,26 @@
                  </div>
 
                 </div>
-                <button type="submit" class="btn">Book Appointment</button>
+                <div class="timeflex">
+                
+                
                 <div class="calendar-container">
                 <form action="" method="post">
-                    <input type="date" name="myDate" value="">
+                    <input type="date" name="myCalender" value="">
                 </div>
+                
+                
+                <div class="time-container">
+                <form action="" method="post">
+                    <input type="time" name="myDate" value="">
+                </div>
+
+                <button type="submit" id="bookButton" class="btn">Book Appointment</button>
+            </div>
                 
                 </form>
             </form>
-        </div>
+        </div> 
     </main>
 
 

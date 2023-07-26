@@ -185,14 +185,13 @@ font-size: 0.9rem;
     color: black;
     border: 2px solid black;
     cursor: pointer;
-    width: 30%;
-    height: 10%;
+    width: 37%;
+    height: 45px;
     font-size: 1.025rem;
-    display: flex;
     padding: 0.5rem;
-    position: absolute;
-    left: 68%;
-    margin-top: 0.5rem;
+     
+     
+     
   }
   .btn:hover {
     background-color: hsl(212, 80%, 50%);  
@@ -219,13 +218,27 @@ font-size: 0.9rem;
   
   /* CSS for date input */
   .calendar-container input[type="date"]{
-    background-color: F0F0F0;
-    width: 30%;
+    background-color: #F0F0F0;
+    width: 100%;
     height: 45px;
-    transform: translateY(20%);
+     
     text-indent: 5px;
   }
   
+  .time-container input[type="time"]{
+    background-color: #F0F0F0;
+    width: 100%;
+    height: 45px;
+    transform: translateX(-50%);
+    text-indent: 5px;
+     
+  }
+  
+  .timeflex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
 
 /* Footer */
