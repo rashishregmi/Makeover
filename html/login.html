@@ -1,47 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Makeover - Login</title>
-  <link rel="stylesheet" href="./../css/login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../css/login.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Makeover</h1>
-    <form action="../php/login.php" method="post" onsubmit="return validateForm()">
-      <label for="username"> </label>
-      <input type="text" id="username" name="username" placeholder="Username" required>
+    <header>
+        <nav>
+            <div class="logo-bg">
+           <div class="logo-girl"></div>
+            <span class="logo">
+                Makeover
+            </span>
+        </div>
+            <ul>
+            <li><a href="./../html/Home.html" class="links">Home</a></li>
+            <li><a href="./../html/About.html" class="links">About</a></li>
+            <li><a href="./../html/Services.html" class="links">Service</a></li>
+            <li><a href="./../html/Appointment.html" class="links">Appointment</a></li>
+            <li><a href="./../html/Contact.html" class="links">Contact</a></li>
+            <li><a href="./../html/login.html" class="links">Login</a></li>
+        </ul>
+        </nav>
+    </header>
+<div class="wrapper">
+    <div class="form-box login">
+        <h2>Login</h2>
+        <form action="#">
+            <div class="input-box">
+                <span class="icon">
+                    <ion-icon name="mail"></ion-icon>
+                </span>
+                <input type="email"  required>
+                <label for="">Email</label>
+            </div>
+            <div class="input-box">
+                <span class="icon">
+                    <ion-icon name="lock-closed"></ion-icon>
+                </span>
+                <input type="password"  required>
+                <label for="">Password</label>
+            </div>
+            <div class="remember-forget">
+                <label for="">
+                    <input type="checkbox">
+                    Remember me
+                </label>
+                <a href="#">Forget Password?</a>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="login-register">
+                <p>Don't have an account?
+                    <a href="#" class="register-link">
+                        Register
+                    </a>
+                </p>
 
-      <label for="password"> </label>
-      <div class="password-input">
-        <input type="password" id="password" name="password" placeholder="Password" required>
-        <i class="fa-solid fa-eye"></i>
-      </div>
+            </div>
+        </form>
+    </div>
+    <div class="form-box register">
+        <h2>Registration</h2>
+        <form action="#">
+            <div class="input-box">
+                <span class="icon">
+                    <ion-icon name="person"></ion-icon>
+                </span>
+                <input type="text"  required>
+                <label for="">Username</label>
+            </div>
+            <div class="input-box">
+                <span class="icon">
+                    <ion-icon name="mail"></ion-icon>
+                </span>
+                <input type="email"  required>
+                <label for="">Email</label>
+            </div> 
+            <div class="input-box">
+                <span class="icon">
+                    <ion-icon name="lock-closed"></ion-icon>
+                </span>
+                <input type="password"  required>
+                <label for="">Password</label>
+            </div>
+            <div class="remember-forget">
+                <label for="">
+                    <input type="checkbox">
+                    I agree to terms & conditions
+                </label>
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <div class="login-register">
+                <p>Already have an account?
+                    <a href="#" class="login-link">
+                        Login
+                    </a>
+                </p>
 
-      <input type="submit" value="Log In" class="btn">
-    </form>
-    <button class="create-account-btn" style="font-size: 17px;" onclick="openRegisterPage()">Create new account</button>
-  </div>
-  <script>
-    function openRegisterPage() {
-      window.location.href = "../php/signup.php";
-    }
+            </div>
+        </form>
+    </div>
+</div>
+    <script src="./../js/login.js">
 
-    function validateForm() {
-      var username = document.getElementById('username').value;
-      var password = document.getElementById('password').value;
-
-      if (username.trim() === '') {
-        alert('Please enter your username');
-        return false;
-      }
-
-      if (password.trim() === '') {
-        alert('Please enter your password');
-        return false;
-      }
-
-      return true;
-    }
-  </script>
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

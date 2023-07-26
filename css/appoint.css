@@ -216,8 +216,16 @@ font-size: 0.9rem;
     margin-bottom: 20px;
   }
   
+  /* CSS for date input */
+  .calendar-container input[type="date"]{
+    background-color: F0F0F0;
+    width: 30%;
+    height: 45px;
+    transform: translateY(20%);
+    text-indent: 5px;
+  }
   
-  
+
 
 /* Footer */
 
