@@ -136,26 +136,27 @@ nav ul li a:hover::after {
 
 .intro {
     text-align: center; 
-    background-color: lightgray;
+    background-color: #E8E8E8;
 }
 
 
 .intro h1 {
     font-family:'Times New Roman', Times, serif;
     color: #4C4C4C;
-    font-size: 30px;
+    font-size: 1.875rem;
     padding-top: 15px;
     margin-bottom: 10px;
     font-weight: bold;
 }
 .intro p{
     
-    font-size: 20px;
+    font-size: 1.25rem;
     margin-left: 20vw;
     margin-right: 20vw;
     align-items: center;
     line-height: 1.5;
     color: #666666;
+    text-align: justify;
 }
 
 
