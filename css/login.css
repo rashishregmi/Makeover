@@ -190,8 +190,7 @@ nav ul li a:hover::after {
     top: -5px;
 }
 
-.input-box input:focus~label,
-.input-box input:valid~label
+.input-box input:focus~label 
 {
     top: -5px;
 
@@ -204,7 +203,7 @@ nav ul li a:hover::after {
     outline: none;
     font-size: 1em;
     color: #162938;
-    font-weight: 600;
+    font-weight: 500;
     padding: 0 35px 0 5px;
 }
 

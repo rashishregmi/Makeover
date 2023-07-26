@@ -136,7 +136,7 @@ nav ul li a:hover::after {
 
 .intro {
     text-align: center; 
-    background-color: lightgray;
+    background-color: #E8E8E8;
 }
 
 
@@ -156,6 +156,7 @@ nav ul li a:hover::after {
     align-items: center;
     line-height: 1.5;
     color: #666666;
+    text-align: justify;
 }
 
 
