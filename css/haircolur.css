@@ -1,32 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
-
+@import url('https://fonts.cdnfonts.com/css/poppins');
 * {
     margin: 0;
     padding: 0;
-    background-color:smokewhite;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+                                                
 }
 
 header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width:100%;
-    align-items: center;
-    justify-content: space-between;
+    position: fixed;
+    width: 100%;
     z-index: 999;
-    background-color: lightgray;
      
 }
 
 .logo-girl {
-    background-image: url("images/comb.png");
+    background-image: url("./../images/comb.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: left center;
     height: 58px;
     width: 58px;
     margin-right: 10px;
-    
+    position: relative;
+    top: 5px;
 }
 
 .logo {
@@ -37,23 +35,29 @@ header {
 .logo-bg {
     display: flex;
     align-items: center;
-    width: 300px; /* Increase or decrease this value as needed */
+    width: fit-content;
 }
 
 span.logo {
     font-size: 40px;
     font-family: 'Pacifico', cursive;
-    background-image: linear-gradient(90deg,red,blue);
+    background-image: linear-gradient(90deg, #FF1493, #00BFFF);
     background-clip: text;
+    -webkit-background-clip: text; /* For Webkit compatibility */
     color: transparent;
     position: relative;
     left: -25px;
+    background-color: rgba(255, 255, 255, 0.8);
 }
+
 
 nav {
     display: flex;
     background-color:  rgba(255, 255, 255, 0.8);
-    width:100%;
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 10px;
+    align-items: center;
 }
 
 .links::after {
@@ -72,13 +76,9 @@ nav ul {
      
     height: 60px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     list-style: none;
-    top: 0px;
-    margin: auto;
-    position: relative;
-    left: 160px;
+    margin-right: 10px;
 } 
 
 nav ul li {
@@ -87,9 +87,8 @@ nav ul li {
 
 nav ul li a {
     color: #333333;
-    /* padding: 0 15px; */
     text-decoration: none;
-    font-size: 26px;
+    font-size: 1.45rem;
     position: relative;
     padding-right: 50px;
      
@@ -97,12 +96,13 @@ nav ul li a {
 
 nav ul li a:hover {
     color: blue;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 nav ul li a:hover::after {
     width: calc(100% - 50px);
 }
+
 
 .slideshow {
     position: absolute;
