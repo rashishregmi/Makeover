@@ -163,17 +163,15 @@ h1{
     padding-top: 60px;
     background-color: black;
 } 
-
 .col-sm-2{
     width: 50%;
     background-color:black;
     padding-top:30px;
-    padding-left:30px;
+    padding-left:20px;
     padding-bottom: 10px;
     position: relative;
     left: 150px;
 }
-
 .row-contain{
     background-color:#E8E8E8;
     }

@@ -1,25 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@200;400;500&display=swap');
-
-*{
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-}
-
- body{
-     
-    min-height: 100vh;
-    background: url('./../images/lightblue.jpeg') no-repeat;
-     background-size: cover; 
-     background-position: center;
-     overflow-y: hidden;
+                                                
 }
 
 header {
     position: fixed;
     width: 100%;
     z-index: 999;
+     
 }
 
 .logo-girl {
@@ -109,7 +102,6 @@ nav ul li a:hover {
 nav ul li a:hover::after {
     width: calc(100% - 50px);
 }
-
 
 .wrapper{
     position:absolute;

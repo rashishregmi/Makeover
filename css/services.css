@@ -145,8 +145,6 @@ h1{
     margin:10px;
     display: grid;
     grid-template-columns: repeat(2,minmax(250px,1fr));
-    justify-content: space-between;
-    align-items: center;
 
     
 }
@@ -168,7 +166,7 @@ h1{
     width: 50%;
     background-color:black;
     padding-top:30px;
-    padding-left:30px;
+    padding-left:20px;
     padding-bottom: 10px;
     position: relative;
     left: 150px;
