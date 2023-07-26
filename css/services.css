@@ -14,7 +14,7 @@ header {
     z-index: 999;
      
 }
-/* 
+
 .logo-girl {
     background-image: url("./../images/comb.png");
     background-repeat: no-repeat;
@@ -25,7 +25,7 @@ header {
     margin-right: 10px;
     position: relative;
     top: 5px;
-} */
+}
 
 .logo {
     height: 58px;
