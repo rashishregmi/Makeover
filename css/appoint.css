@@ -139,7 +139,7 @@ justify-content:space-between;
 .form-row2{
 display: flex;
 justify-content:space-between;
-padding-bottom: 30px; 
+padding-bottom: 15px; 
 }
 
 .check-row{
@@ -161,7 +161,7 @@ font-size: 1.05rem;
 }
 
 .check-row2 li{
-padding-bottom: 20px;
+padding-bottom: 32px;
 font-size: 1.05rem;
 }
 
@@ -274,7 +274,7 @@ font-size: 0.9rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    transform: translateY(80%);
+    transform: translateY(30%);
   }
 
 
