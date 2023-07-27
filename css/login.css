@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
 @import url('https://fonts.cdnfonts.com/css/poppins');
+ 
 * {
     margin: 0;
     padding: 0;
@@ -53,7 +54,7 @@ span.logo {
 
 nav {
     display: flex;
-    background-color:  rgba(255, 255, 255, 0.8);
+    /* background-color: lightgray; */
     width: 100%;
     justify-content: space-between;
     padding-left: 10px;
@@ -262,4 +263,11 @@ nav ul li a:hover::after {
 
 .login-register p a:hover{
     text-decoration: underline;
+}
+
+body{
+    background-image: url("/images/lightblue.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: cover;
 }
