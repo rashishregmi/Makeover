@@ -1,4 +1,4 @@
- 
+
   function validateForm(event) {
     event.preventDefault(); // Prevent form submission
 
@@ -69,7 +69,8 @@
       return;
     }
 
-    // Form is valid, you can submit the form here if needed
+    // If no errors, proceed with form submission
+    alert("Appointment booked!");
     document.getElementById("appointment-form").submit();
   }
 
