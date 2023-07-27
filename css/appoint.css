@@ -136,8 +136,19 @@ justify-content:space-between;
  
 
 }
+.form-row2{
+display: flex;
+justify-content:space-between;
+padding-bottom: 30px; 
+}
 
 .check-row{
+display: flex;
+flex-direction: column;
+list-style: none;
+ 
+}
+.check-row2{
 display: flex;
 flex-direction: column;
 list-style: none;
@@ -146,6 +157,11 @@ list-style: none;
 
 .check-row li{
 padding-bottom: 25px;
+font-size: 1.05rem;
+}
+
+.check-row2 li{
+padding-bottom: 20px;
 font-size: 1.05rem;
 }
 
@@ -200,7 +216,7 @@ font-size: 0.9rem;
   }
 
 .appointment-container {
-    margin: 2rem auto;
+    margin: 1rem auto;
     width: 100%;
     max-width: 37rem;
     height: 30rem;
@@ -210,7 +226,22 @@ font-size: 0.9rem;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     position: relative;
   }
+.appointment-container2 {
+    margin: 2rem auto;
+    width: 100%;
+    max-width: 37rem;
+    height: 28rem;
+    padding: 20px;
+    background-color:  #F0F0F0;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
   
+  .appointment-container2 h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
   .appointment-container h2 {
     text-align: center;
     margin-bottom: 20px;
@@ -238,6 +269,12 @@ font-size: 0.9rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+  .timeflex2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    transform: translateY(80%);
   }
 
 
