@@ -2,8 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require '../../makeover/php/connection.php';
-
+require '../php/connection.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -12,16 +11,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        // Database query to insert data
         $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sss", $username, $email, $password);
 
         if ($stmt->execute()) {
-            // Data stored successfully, display success message
-            echo "Data stored successfully!";
+            header("Location: http://localhost/Makeover/html/login.html#");
+            exit;
         } else {
-            // Display an error message if data insertion fails
             echo "Error: " . $conn->error;
         }
 

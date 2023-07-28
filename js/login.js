@@ -1,104 +1,114 @@
- // Swapping between login and registration forms
- const wrapper = document.querySelector('.wrapper');
- const loginLink = document.querySelector('.login-link');
- const registerLink = document.querySelector('.register-link');
+const wrapper = document.querySelector('.wrapper');
+const loginLink = document.querySelector('.login-link');
+const registerLink = document.querySelector('.register-link');
 
- registerLink.addEventListener('click', () => {
-     wrapper.classList.add('active');
- });
+registerLink.addEventListener('click', () => {
+    if (!wrapper.classList.contains('active')) {
+        wrapper.classList.add('active');
+        clearInputFields('.form-box.login');
+    }
+});
 
- loginLink.addEventListener('click', () => {
-     wrapper.classList.remove('active');
- });
+loginLink.addEventListener('click', () => {
+    if (wrapper.classList.contains('active')) {
+        wrapper.classList.remove('active');
+        clearInputFields('.form-box.register');
+    }
+});
 
- // Email and password input transition
- const inputBoxes = document.querySelectorAll('.input-box');
+const inputBoxes = document.querySelectorAll('.input-box');
 
- inputBoxes.forEach(inputBox => {
-   
-     const label = inputBox.querySelector('label');
+inputBoxes.forEach(inputBox => {
+    const input = inputBox.querySelector('input');
+    const label = inputBox.querySelector('label');
 
-     input.addEventListener('input', () => {
-        const input = inputBox.querySelector('input');
-         if (input.value.trim() !== '') {
-             inputBox.classList.add('input-filled');
-         } else {
-             inputBox.classList.remove('input-filled');
-         }
-     });
+    input.addEventListener('input', () => {
+        if (input.value.trim() !== '') {
+            inputBox.classList.add('input-filled');
+        } else {
+            inputBox.classList.remove('input-filled');
+        }
+    });
 
-     if (input.value.trim() !== '') {
-         inputBox.classList.add('input-filled');
-     }
- });
+    input.addEventListener('focus', () => {
+        label.style.top = '-5px';
+    });
 
- // Registration form validation
- const registerButton = document.querySelector('.form-box.register .btn');
- const usernameInput = document.getElementById('username');
- const emailInput = document.getElementById('email');
- const passwordInput = document.getElementById('password');
- const termsCheckbox = document.querySelector('.form-box.register input[type="checkbox"]');
+    input.addEventListener('blur', () => {
+        if (input.value.trim() === '') {
+            label.style.top = '50%';
+        }
+    });
 
- registerButton.addEventListener('click', (event) => {
-     event.preventDefault();
+    if (input.value.trim() !== '') {
+        inputBox.classList.add('input-filled');
+    }
+});
 
-     // Check if username has at least 3 characters
-     const usernameValue = usernameInput.value.trim();
-     if (usernameValue.length < 3) {
-         alert('Username should have at least 3 characters.');
-         return;
-     }
+function clearInputFields(formBoxClass) {
+    const inputFields = document.querySelectorAll(formBoxClass + ' input');
+    inputFields.forEach(input => (input.value = ''));
+}
 
-     // Check if the email is valid
-     const emailValue = emailInput.value.trim();
-     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-     if (!emailPattern.test(emailValue)) {
-         alert('Please enter a valid email address.');
-         return;
-     }
+const registerForm = document.getElementById('register-form'); // Use the ID of the form
+const usernameInput = document.getElementById('username');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+const termsCheckbox = document.getElementById('terms');
 
-     // Check if password meets the requirements (at least 8 characters, 1 capital letter, and 1 special character)
-     const passwordValue = passwordInput.value.trim();
-     const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-     if (!passwordPattern.test(passwordValue)) {
-         alert('Password should have at least 8 characters, 1 capital letter, and 1 special character.');
-         return;
-     }
+registerForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevent the form from submitting automatically
 
-     // Check if the terms and conditions checkbox is checked
-     if (!termsCheckbox.checked) {
-         alert('Please agree to the terms & conditions.');
-         return;
-     }
+    const usernameValue = usernameInput.value.trim();
+    if (usernameValue.length < 3) {
+        alert('Username should have at least 3 characters.');
+        return;
+    }
 
-     // Registration successful, redirect to login page
-     window.location.href = "http://localhost/Makeover/html/login.html";
- });
+    const emailValue = emailInput.value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(emailValue) || emailValue.length < 5) {
+        alert('Please enter a valid email address with at least 5 characters.');
+        return;
+    }
 
- // Login form validation
- const loginButton = document.querySelector('.form-box.login .btn');
- const emailInputLogin = document.getElementById('email1');
- const passwordInputLogin = document.getElementById('password1');
+    const passwordValue = passwordInput.value.trim();
+    const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordPattern.test(passwordValue)) {
+        alert('Password should have at least 8 characters, 1 capital letter, and 1 special character.');
+        return;
+    }
 
- loginButton.addEventListener('click', (event) => {
-     event.preventDefault();
+    if (!termsCheckbox.checked) {
+        alert('Please agree to the terms & conditions.');
+        return;
+    }
 
-     // Check if the email is valid
-     const emailValue = emailInputLogin.value.trim();
-     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-     if (!emailPattern.test(emailValue)) {
-         alert('Please enter a valid email address.');
-         return;
-     }
+    // If all validations pass, manually submit the form
+    registerForm.submit();
+});
 
-     // Check if password meets the requirements (at least 8 characters, 1 capital letter, and 1 special character)
-     const passwordValue = passwordInputLogin.value.trim();
-     const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-     if (!passwordPattern.test(passwordValue)) {
-         alert('Password should have at least 8 characters, 1 capital letter, and 1 special character.');
-         return;
-     }
+const loginForm = document.querySelector('.form-box.login form');
+const emailInputLogin = document.getElementById('email1');
+const passwordInputLogin = document.getElementById('password1');
 
-     // Login successful, redirect to appoitment2 page
-     window.location.href = "http://localhost/Makeover/html/Appointment2.html";
- });
+loginForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const emailValue = emailInputLogin.value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(emailValue) || emailValue.length < 5) {
+        alert('Please enter a valid email address with at least 5 characters.');
+        return;
+    }
+
+    const passwordValue = passwordInputLogin.value.trim();
+    const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordPattern.test(passwordValue)) {
+        alert('Password should have at least 8 characters, 1 capital letter, and 1 special character.');
+        return;
+    }
+
+    // If all validations pass, manually submit the form
+    loginForm.submit();
+});

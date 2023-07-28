@@ -102,8 +102,26 @@ nav ul li a:hover {
 nav ul li a:hover::after {
     width: calc(100% - 50px);
 }
+ 
+  .confirmation-popup {
+    position: fixed;
+    top: 30%;
+    left: 77%;
+    transform: translate(5%, -105%);
+    padding: 20px;
+    background-color: lightgray;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+  }
 
+  .confirmation-popup p {
+    margin-bottom: 15px;
+  }
 
+  .confirmation-popup .btn {
+    margin-right: 31px;
+  }
+ 
  
  
 h1{
