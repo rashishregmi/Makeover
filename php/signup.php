@@ -1,10 +1,20 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+
 require 'connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
+
+    echo "Form data received:\n";
+    echo "Username: " . $username . "\n";
+    echo "Email: " . $email . "\n";
+    echo "Password: " . $password . "\n";
+
 
     // You should add more validation and sanitization for the form data here before storing it in the database.
 
