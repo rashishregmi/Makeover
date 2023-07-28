@@ -226,6 +226,7 @@ nav ul li a:hover::after {
 .remember-forget a{
     color: #162938;
     text-decoration: none;
+    transform: translateX(147%);
 }
 
 .remember-forget a:hover{

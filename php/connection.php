@@ -1,8 +1,8 @@
 <?php
-$Fullname = $_POST['Fullname'];
-$Username = $_POST['Username'];
-$Email = $_POST['Email'];
-$Password = $_POST['Password'];
+$fullname = $_POST['fullname'];   //input name
+$username = $_POST['username'];
+$email = $_POST['email'];
+$password = $_POST['password'];
 
 // Database connection
 $conn = new mysqli('localhost', 'root', '', 'makeover');
@@ -10,10 +10,10 @@ if ($conn->connect_error) {
     die('Connection Failed: ' . $conn->connect_error);
 } else {
     // Check if Fullname is not empty
-    if (!empty($Fullname)) {
-        $stmt = $conn->prepare("INSERT INTO users (Fullname, Username, Email, Password)
+    if (!empty($fullname)) {
+        $stmt = $conn->prepare("INSERT INTO users (fullname, username, email, password)
             VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $Fullname, $Username, $Email, $Password);
+        $stmt->bind_param("ssss", $fullname, $username, $email, $password);
         $stmt->execute();
         $stmt->close();
         echo "Registration successful.";
