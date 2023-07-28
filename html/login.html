@@ -28,10 +28,7 @@
         <div class="wrapper">
             <div class="form-box login">
                 <h2>Login</h2>
-                <?php if (isset($_SESSION['login_error'])) : ?>
-                    <p style="color: red;"><?php echo $_SESSION['login_error']; ?></p>
-                    <?php unset($_SESSION['login_error']); ?>
-                <?php endif; ?>
+                 
                 <form action="./../../makeover/php/login.php" method="POST">
                     <div class="input-box">
                         <span class="icon">
@@ -55,7 +52,7 @@
                     </div>
                 </form>
             </div>
-            <div class="form-box register">
+        
                 
                 <div class="form-box register">
                     <h2>Registration</h2>
