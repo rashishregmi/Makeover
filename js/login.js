@@ -50,65 +50,77 @@ function clearInputFields(formBoxClass) {
     inputFields.forEach(input => (input.value = ''));
 }
 
-const registerForm = document.getElementById('register-form'); // Use the ID of the form
-const usernameInput = document.getElementById('username');
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
-const termsCheckbox = document.getElementById('terms');
-
-registerForm.addEventListener('submit', (event) => {
-    event.preventDefault(); // Prevent the form from submitting automatically
-
-    const usernameValue = usernameInput.value.trim();
-    if (usernameValue.length < 3) {
-        alert('Username should have at least 3 characters.');
+document.addEventListener('DOMContentLoaded', () => {
+    const registerForm = document.getElementById('register-form');
+    if (!registerForm) {
+        console.error("register-form not found in the DOM.");
         return;
     }
 
-    const emailValue = emailInput.value.trim();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(emailValue) || emailValue.length < 5) {
-        alert('Please enter a valid email address with at least 5 characters.');
+    registerForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const usernameInput = document.getElementById('username');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const termsCheckbox = document.getElementById('terms');
+
+        const usernameValue = usernameInput.value.trim();
+        if (usernameValue.length < 3) {
+            alert('Username should have at least 3 characters.');
+            return;
+        }
+
+        const emailValue = emailInput.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(emailValue) || emailValue.length < 5) {
+            alert('Please enter a valid email address with at least 5 characters.');
+            return;
+        }
+
+        const passwordValue = passwordInput.value.trim();
+        const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!passwordPattern.test(passwordValue)) {
+            alert('Password should have at least 8 characters, 1 capital letter, and 1 special character.');
+            return;
+        }
+
+        if (!termsCheckbox.checked) {
+            alert('Please agree to the terms & conditions.');
+            return;
+        }
+
+        // If all validations pass, manually submit the form
+        registerForm.submit();
+    });
+
+    const loginForm = document.querySelector('.form-box.login form');
+    if (!loginForm) {
+        console.error("Login form not found in the DOM.");
         return;
     }
 
-    const passwordValue = passwordInput.value.trim();
-    const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    if (!passwordPattern.test(passwordValue)) {
-        alert('Password should have at least 8 characters, 1 capital letter, and 1 special character.');
-        return;
-    }
+    const emailInputLogin = document.getElementById('email1');
+    const passwordInputLogin = document.getElementById('password1');
 
-    if (!termsCheckbox.checked) {
-        alert('Please agree to the terms & conditions.');
-        return;
-    }
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault();
 
-    // If all validations pass, manually submit the form
-    registerForm.submit();
-});
+        const emailValue = emailInputLogin.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(emailValue) || emailValue.length < 5) {
+            alert('Please enter a valid email address with at least 5 characters.');
+            return;
+        }
 
-const loginForm = document.querySelector('.form-box.login form');
-const emailInputLogin = document.getElementById('email1');
-const passwordInputLogin = document.getElementById('password1');
+        const passwordValue = passwordInputLogin.value.trim();
+        const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!passwordPattern.test(passwordValue)) {
+            alert('Password should have at least 8 characters, 1 capital letter, and 1 special character.');
+            return;
+        }
 
-loginForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const emailValue = emailInputLogin.value.trim();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(emailValue) || emailValue.length < 5) {
-        alert('Please enter a valid email address with at least 5 characters.');
-        return;
-    }
-
-    const passwordValue = passwordInputLogin.value.trim();
-    const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    if (!passwordPattern.test(passwordValue)) {
-        alert('Password should have at least 8 characters, 1 capital letter, and 1 special character.');
-        return;
-    }
-
-    // If all validations pass, manually submit the form
-    loginForm.submit();
+        // If all validations pass, manually submit the form
+        loginForm.submit();
+    });
 });

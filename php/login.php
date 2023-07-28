@@ -1,19 +1,11 @@
+
 <?php
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-
-require '../connection.php';
+session_start();
+require '../php/connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
-
-    echo "Form data received:\n";
-    echo "Email: " . $email . "\n";
-    echo "Password: " . $password . "\n";
-
 
     $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
     $result = $conn->query($sql);
@@ -23,11 +15,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: http://localhost/Makeover/html/Appointment2.html");
         exit;
     } else {
-        // Login failed, display error message
-        echo "Invalid email or password";
+        // Login failed, set error message for display on login.html
+        $_SESSION['login_error'] = "Invalid email or password";
+        header("Location: http://localhost/makeover/html/login.html"); // Redirect back to the login page
+        exit;
     }
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
