@@ -15,10 +15,11 @@
  const inputBoxes = document.querySelectorAll('.input-box');
 
  inputBoxes.forEach(inputBox => {
-     const input = inputBox.querySelector('input');
+   
      const label = inputBox.querySelector('label');
 
      input.addEventListener('input', () => {
+        const input = inputBox.querySelector('input');
          if (input.value.trim() !== '') {
              inputBox.classList.add('input-filled');
          } else {
@@ -98,6 +99,6 @@
          return;
      }
 
-     // Login successful, redirect to login page
-     window.location.href = "http://localhost/Makeover/html/login.html";
+     // Login successful, redirect to appoitment2 page
+     window.location.href = "http://localhost/Makeover/html/Appointment2.html";
  });

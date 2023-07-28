@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./../css/login.css">
+    <link rel="stylesheet" href="../../makeover/css/login.css">
+
+
 </head>
 <body>
     <header>
@@ -26,6 +28,7 @@
 
     <div class="main-container">
         <div class="wrapper">
+
             <div class="form-box login">
                 <h2>Login</h2>
                 <form action="#">
@@ -34,14 +37,14 @@
                             <ion-icon name="mail"></ion-icon>
                         </span>
                         <input type="email" id="email1" name="email" required>
-                        <label for="">Email</label>
+                        <label for="email">Email</label>
                     </div>
                     <div class="input-box">
                         <span class="icon">
                             <ion-icon name="lock-closed"></ion-icon>
                         </span>
                         <input type="password" id="password1" name="password" required>
-                        <label for="">Password</label>
+                        <label for="password1">Password</label>
                     </div>
                     <button type="submit" class="btn" id="btn" name="btn">Login</button>
                     <div class="login-register">
@@ -55,30 +58,31 @@
             </div>
             <div class="form-box register">
                 <h2>Registration</h2>
-                <form action="./../../makeover/php/signup.php" method="POST" id="register-form">
+                <form action="../../makeover/php/signup.php" method="POST" id="register-form">
+
                     <div class="input-box">
                         <span class="icon">
                             <ion-icon name="person"></ion-icon>
                         </span>
                         <input type="text" id="username" name="username" required>
-                        <label for="">Username</label>
+                        <label for="username">Username</label>
                     </div>
                     <div class="input-box">
                         <span class="icon">
                             <ion-icon name="mail"></ion-icon>
                         </span>
                         <input type="email" id="email" name="email" required>
-                        <label for="">Email</label>
+                        <label for="email">Email</label>
                     </div>
                     <div class="input-box">
                         <span class="icon">
                             <ion-icon name="lock-closed"></ion-icon>
                         </span>
                         <input type="password" id="password" name="password" required>
-                        <label for="">Password</label>
+                        <label for="password">Password</label>
                     </div>
                     <div class="remember-forget">
-                        <label for="">
+                        <label for="terms">
                             <input type="checkbox" id="terms">
                             I agree to terms & conditions
                         </label>
@@ -96,7 +100,8 @@
         </div>
     </div>
 
-    <script src="./../../makeover/js/login.js"> </script>
+    <script src="../../makeover/js/login.js"></script>
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
