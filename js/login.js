@@ -1,7 +1,7 @@
 // Function to check if the user is registered
 async function checkIfUserIsRegistered(username, email) {
     try {
-        const response = await fetch('path/to/check_user.php', {
+        const response = await fetch('../php/check_user.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -21,59 +21,82 @@ async function checkIfUserIsRegistered(username, email) {
     }
 }
 
-const wrapper = document.querySelector('.wrapper');
-const loginLink = document.querySelector('.login-link');
-const registerLink = document.querySelector('.register-link');
+function validateInputFields(formBoxClass) {
+    const inputFields = document.querySelectorAll(`${formBoxClass} input`);
+    let isValid = true;
 
-registerLink.addEventListener('click', () => {
-    if (!wrapper.classList.contains('active')) {
-        wrapper.classList.add('active');
-        clearInputFields('.form-box.login');
-    }
-});
+    inputFields.forEach(input => {
+        const label = input.parentElement.querySelector('label');
 
-loginLink.addEventListener('click', () => {
-    if (wrapper.classList.contains('active')) {
-        wrapper.classList.remove('active');
-        clearInputFields('.form-box.register');
-    }
-});
-
-const inputBoxes = document.querySelectorAll('.input-box');
-
-inputBoxes.forEach(inputBox => {
-    const input = inputBox.querySelector('input');
-    const label = inputBox.querySelector('label');
-
-    input.addEventListener('input', () => {
-        if (input.value.trim() !== '') {
-            inputBox.classList.add('input-filled');
-        } else {
-            inputBox.classList.remove('input-filled');
-        }
-    });
-
-    input.addEventListener('focus', () => {
-        label.style.top = '-5px';
-    });
-
-    input.addEventListener('blur', () => {
         if (input.value.trim() === '') {
-            label.style.top = '50%';
+            isValid = false;
+            input.parentElement.classList.remove('input-filled');
+            if (label) {
+                label.style.top = '50%';
+            }
+        } else {
+            input.parentElement.classList.add('input-filled');
+            if (label) {
+                label.style.top = '-5px';
+            }
         }
     });
 
-    if (input.value.trim() !== '') {
-        inputBox.classList.add('input-filled');
-    }
-});
-
-function clearInputFields(formBoxClass) {
-    const inputFields = document.querySelectorAll(formBoxClass + ' input');
-    inputFields.forEach(input => (input.value = ''));
+    return isValid;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    const wrapper = document.querySelector('.wrapper');
+    const loginLink = document.querySelector('.login-link');
+    const registerLink = document.querySelector('.register-link');
+
+    registerLink.addEventListener('click', () => {
+        if (!wrapper.classList.contains('active')) {
+            wrapper.classList.add('active');
+            validateInputFields('.form-box.login');
+        }
+    });
+
+    loginLink.addEventListener('click', () => {
+        if (wrapper.classList.contains('active')) {
+            wrapper.classList.remove('active');
+            validateInputFields('.form-box.register');
+        }
+    });
+
+    const inputBoxes = document.querySelectorAll('.input-box');
+
+    inputBoxes.forEach(inputBox => {
+        const input = inputBox.querySelector('input');
+        const label = inputBox.querySelector('label');
+
+        input.addEventListener('input', () => {
+            if (input.value.trim() !== '') {
+                inputBox.classList.add('input-filled');
+            } else {
+                inputBox.classList.remove('input-filled');
+            }
+        });
+
+        input.addEventListener('focus', () => {
+            if (label) {
+                label.style.top = '-5px';
+            }
+        });
+
+        input.addEventListener('blur', () => {
+            if (input.value.trim() === '') {
+                if (label) {
+                    label.style.top = '50%';
+                }
+            }
+        });
+
+        if (input.value.trim() !== '') {
+            inputBox.classList.add('input-filled');
+        }
+    });
+
     const registerForm = document.getElementById('register-form');
     if (!registerForm) {
         console.error("register-form not found in the DOM.");

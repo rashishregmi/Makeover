@@ -39,7 +39,9 @@
     <main class="main-container">
         <div class="appointment-container2">
             <h2>Book your Appointment</h2>
-            <form id="appointment-form">
+
+            <form id="appointment-form2" action="./../php/submit_appointment2.php" method="post">
+                
                 <div class="form-row2">
                     <input type="text" id="fullname" class="input-field" placeholder="Full Name" name="fullname" required>
                     <input type="tel" id="contact" class="input-field" placeholder="Contact Number" name="contact" pattern="[9][87]\d{8}" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
@@ -49,41 +51,41 @@
                     <div>
                         <ul class="check-row2">
                             <li>
-                                <input type="checkbox" id="haircut" name="topics" value="Haircut">
+                                <input type="checkbox" id="haircut" name="topics[]" value="Haircut">
                                 <label for="haircut">Haircut</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="hair-colouring" name="topics" value="Hair Colouring">
+                                <input type="checkbox" id="hair-colouring" name="topics[]" value="Hair Colouring">
                                 <label for="hair-colouring">Hair Colouring</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="smoothening" name="topics" value="Smoothening">
+                                <input type="checkbox" id="smoothening" name="topics[]" value="Smoothening">
                                 <label for="smoothening">Smoothening</label>
                             </li>
                         </ul>
                     </div>
                     <ul class="check-row2">
                         <li>
-                            <input type="checkbox" id="threading" name="topics" value="Threading">
+                            <input type="checkbox" id="threading" name="topics[]" value="Threading">
                             <label for="threading">Threading</label>
                         </li>
                         <li>
-                            <input type="checkbox" id="bridal-makeup" name="topics" value="Bridal Makeup">
+                            <input type="checkbox" id="bridal-makeup" name="topics[]" value="Bridal Makeup">
                             <label for="bridal-makeup">Bridal Makeup</label>
                         </li>
                         <li>
-                            <input type="checkbox" id="skin-therapy" name="topics" value="Skin Therapy">
+                            <input type="checkbox" id="skin-therapy" name="topics[]" value="Skin Therapy">
                             <label for="skin-therapy">Skin Therapy</label>
                         </li>
                     </ul>
                     <div>
                         <ul class="check-row2">
                             <li>
-                                <input type="checkbox" id="nail-extension" name="topics" value="Nail Extension">
+                                <input type="checkbox" id="nail-extension" name="topics[]" value="Nail Extension">
                                 <label for="nail-extension">Nail Extension</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="manicure-pedicure" name="topics" value="Manicure and Pedicure">
+                                <input type="checkbox" id="manicure-pedicure" name="topics[]" value="Manicure and Pedicure">
                                 <label for="manicure-pedicure">Manicure and Pedicure</label>
                             </li>
                         </ul>
