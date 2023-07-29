@@ -17,22 +17,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         try {
             if ($stmt->execute()) {
                 // Registration successful, redirect back to login page with a success message
-                header("Location: http://localhost/Makeover/html/login.html");
+                header("Location: http://localhost/Makeover/html/login.html#success");
                 exit;
             } else {
                 // Redirect back to signup page with a general error message
-                header("Location: http://localhost/Makeover/html/login.html#");
+                header("Location: http://localhost/Makeover/html/login.html#error");
                 exit;
             }
         } catch (mysqli_sql_exception $e) {
             // Check if the error is a duplicate entry error
             if ($stmt->errno === 1062) { // Error code for duplicate entry
                 // Redirect back to signup page with an error message for duplicate username
-                header("Location: http://localhost/Makeover/html/login.html#");
+                header("Location: http://localhost/Makeover/html/login.html#duplicate");
                 exit;
             } else {
                 // Redirect back to signup page with a general error message
-                header("Location: http://localhost/Makeover/html/login.html");
+                header("Location: http://localhost/Makeover/html/login.html#error");
                 exit;
             }
         }

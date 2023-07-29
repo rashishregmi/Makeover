@@ -102,6 +102,8 @@ nav ul li a {
      
 }
 
+ 
+
 nav ul li a:hover {
     color: blue;
     font-weight: 400;
