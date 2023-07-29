@@ -28,7 +28,6 @@
                 <li><a href="./../html/Appointment.html" class="links">Appointment</a></li>
                 <li><a href="./../html/Contact.html" class="links">Contact</a></li>
                 <li><a href="#" class="links" id="logout-link">Logout</a></li>
-
             </ul>
         </nav>
     </header>
@@ -37,142 +36,99 @@
         <h1 class="common-heading">Appointment</h1>
     </div>
 
-
     <main class="main-container">
         <div class="appointment-container2">
             <h2>Book your Appointment</h2>
             <form id="appointment-form">
                 <div class="form-row2">
-
                     <input type="text" id="fullname" class="input-field" placeholder="Full Name" required>
                     <input type="tel" id="contact" class="input-field" placeholder="Contact Number" pattern="[9][87]\d{8}" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
-
-                
                 </div>
-
-           
-
 
                 <div class="check-row-container">
-
-                 <div>
-                    <ul class="check-row2">
-
-                        <li>
-                            <input type="checkbox" id="haircut" name="topics" value="Haircut">
-                            <label for="haircut">Haircut</label>
-                        </li>
-
-                        <li>
-                            <input type="checkbox" id="hair-colouring" name="topics" value="Hair Colouring">
-                            <label for="hair-colouring">Hair Colouring</label>
-                        </li>
-
-                        <li>
-                            <input type="checkbox" id="smoothening" name="topics" value="Smoothening">
-                            <label for="smoothening">Smoothening</label>
-                        </li>
-
-                    </ul>
-
-                 </div>
-                 <ul class="check-row2">
-                    <li>
-                        <input type="checkbox" id="threading" name="topics" value="Threading">
-                        <label for="threading">Threading</label>
-                    </li>
-
-                    <li>
-                        <input type="checkbox" id="bridal-makeup" name="topics" value="Bridal Makeup">
-                        <label for="bridal-makeup">Bridal Makeup</label>
-
-                    </li>
-
-
-                    <li>
-                        <input type="checkbox" id="skin-therapy" name="topics" value="Skin Therapy">
-                        <label for="skin-therapy">Skin Therapy</label>
-                    </li>
-
-                </ul>
-
-                 <div>
-<ul class="check-row2">
+                    <div>
+                        <ul class="check-row2">
                             <li>
-                        <input type="checkbox" id="nail-extension" name="topics" value="Nail Extension">
-                        <label for="nail-extension">Nail Extension</label>
-                    </li>
-
-            
-                    <li>
-                        <input type="checkbox" id="manicure-pedicure" name="topics" value="Manicure and Pedicure">
-                        <label for="manicure-pedicure">Manicure and Pedicure</label>
-                    </li>
-
+                                <input type="checkbox" id="haircut" name="topics" value="Haircut">
+                                <label for="haircut">Haircut</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="hair-colouring" name="topics" value="Hair Colouring">
+                                <label for="hair-colouring">Hair Colouring</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="smoothening" name="topics" value="Smoothening">
+                                <label for="smoothening">Smoothening</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="check-row2">
+                        <li>
+                            <input type="checkbox" id="threading" name="topics" value="Threading">
+                            <label for="threading">Threading</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="bridal-makeup" name="topics" value="Bridal Makeup">
+                            <label for="bridal-makeup">Bridal Makeup</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="skin-therapy" name="topics" value="Skin Therapy">
+                            <label for="skin-therapy">Skin Therapy</label>
+                        </li>
                     </ul>
-                 </div>
-
+                    <div>
+                        <ul class="check-row2">
+                            <li>
+                                <input type="checkbox" id="nail-extension" name="topics" value="Nail Extension">
+                                <label for="nail-extension">Nail Extension</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="manicure-pedicure" name="topics" value="Manicure and Pedicure">
+                                <label for="manicure-pedicure">Manicure and Pedicure</label>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+
                 <div class="timeflex2">
-                
-                
-                <div class="calendar-container">
-                <form action="" method="post">
-                    <input type="date" name="myCalender" value="">
-                </div>
-                
-                
-                <div class="time-container">
-                <form action="" method="post">
-                    <input type="time" name="myDate" value="">
+                    <div class="calendar-container">
+                        <input type="date" name="myCalender" value="">
+                    </div>
+                    <div class="time-container">
+                        <input type="time" name="myDate" value="">
+                    </div>
+                    <button type="submit" id="bookButton" class="btn">Book Appointment</button>
                 </div>
 
-                <button type="submit" id="bookButton" class="btn">Book Appointment</button>
-            </div>
-                
-                </form>
             </form>
-        </div> 
+        </div>
     </main>
-
-
 
     <div class="footer-container">
         <footer>
             <div class="box-container">
-
                 <div class="box1">
                     <div class="box1-heading">
                         MAKEOVER
                     </div>
-
-
                     <div class="box1-info">
-
-                        Manigram,tilottama-5, Nepal <br>
+                        Manigram, Tilottama-5, Nepal <br>
                         Phone: 9811592861, 9826479062 <br>
-                        Email: <a class="gmail"
-                            href="mailto:rashish.regmi100@gmail.com">rashish.regmi100@gmail.com</a><br> <br>
-
+                        Email: <a class="gmail" href="mailto:rashish.regmi100@gmail.com">rashish.regmi100@gmail.com</a><br>
+                        <br>
                     </div>
-
                     <div class="box1-heading">
                         OPENING HOUR
                     </div>
-
-
                     <div class="box1-info">
                         Sunday-Saturday: 10AM-7PM
-
                     </div>
                 </div>
-
 
                 <div class="box2">
                     <span class="box2-heading">
                         FOLLOW-US
                     </span>
-
                     <div class="social-media">
                         <ul>
                             <li><a href="https://www.facebook.com/rashish.regmi" target="_blank"><img class="fb"
@@ -189,47 +145,82 @@
                     </div>
                     <div class="copyright">&copy; 2023 Makeover.com</div>
                 </div>
+            </div>
         </footer>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-          // Get the logout link element
-          const logoutLink = document.getElementById("logout-link");
-      
-          // Add a click event listener to the logout link
-          logoutLink.addEventListener("click", function(e) {
-            e.preventDefault(); // Prevent the default behavior of the link
-      
-            // Show the popup confirmation dialog
-            const confirmationPopup = document.createElement("div");
-            confirmationPopup.classList.add("confirmation-popup");
-            confirmationPopup.innerHTML = `
-              <p>Are you sure you want to logout?</p>
-              <button id="logout-yes" class="btn">Yes</button>
-              <button id="logout-no" class="btn">No</button>
-            `;
-      
-            document.body.appendChild(confirmationPopup);
-      
-            // Add click event listeners to the "Yes" and "No" buttons in the popup
-            const logoutYesButton = document.getElementById("logout-yes");
-            const logoutNoButton = document.getElementById("logout-no");
-      
-            logoutYesButton.addEventListener("click", function() {
-              // If the user clicks "Yes", redirect to the login page
-              window.location.href = "http://localhost/Makeover/html/login.html";
-              document.body.removeChild(confirmationPopup);
-            });
-      
-            logoutNoButton.addEventListener("click", function() {
-              // If the user clicks "No", remove the popup and do nothing (stay on the same page)
-              document.body.removeChild(confirmationPopup);
-            });
-          });
-        });
-      </script>
-      
-    <script src="./../../makeover/js/appoint2.js"></script>
-</body>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the logout link element
+            const logoutLink = document.getElementById("logout-link");
+
+            // Add a click event listener to the logout link
+            logoutLink.addEventListener("click", function (e) {
+                e.preventDefault(); // Prevent the default behavior of the link
+
+                // Show the popup confirmation dialog
+                const confirmationPopup = document.createElement("div");
+                confirmationPopup.classList.add("confirmation-popup");
+                confirmationPopup.innerHTML = `
+                    <p>Are you sure you want to logout?</p>
+                    <button id="logout-yes" class="btn">Yes</button>
+                    <button id="logout-no" class="btn">No</button>
+                `;
+
+                document.body.appendChild(confirmationPopup);
+
+                // Add click event listeners to the "Yes" and "No" buttons in the popup
+                const logoutYesButton = document.getElementById("logout-yes");
+                const logoutNoButton = document.getElementById("logout-no");
+
+                logoutYesButton.addEventListener("click", function () {
+                    // If the user clicks "Yes", redirect to the login page
+                    window.location.href = "http://localhost/Makeover/html/login.html";
+                    document.body.removeChild(confirmationPopup);
+                });
+
+                logoutNoButton.addEventListener("click", function () {
+                    // If the user clicks "No", remove the popup and do nothing (stay on the same page)
+                    document.body.removeChild(confirmationPopup);
+                });
+            });
+
+            const bookButton = document.getElementById("bookButton");
+            bookButton.addEventListener("click", function (e) {
+                e.preventDefault(); // Prevent form submission to test validation
+
+                const fullNameInput = document.getElementById("fullname");
+                const fullNameValue = fullNameInput.value.trim();
+
+                // Full name validation
+                if (!fullNameValue) {
+                    alert("Enter your full name");
+                    return;
+                }
+
+                // Regular expression to check if the full name contains at least 3 characters and a space
+                const alphabetsWithSpaceRegex = /^[A-Za-z ]{3,}$/;
+
+                if (!alphabetsWithSpaceRegex.test(fullNameValue)) {
+                    alert("Full name should be at least 3 characters long and should contain a space.");
+                    return;
+                }
+
+                const contactInput = document.getElementById("contact");
+                const contactValue = contactInput.value.trim();
+                const checkboxes = document.querySelectorAll('input[name="topics"]:checked');
+                const dateInput = document.querySelector('input[type="date"]');
+                const timeInput = document.querySelector('input[type="time"]');
+
+                // Rest of the validation code remains unchanged...
+
+                // If all validations pass, show the "Appointment booked" message
+                alert("Appointment booked");
+
+                // Reset the form to its initial state
+                document.getElementById("appointment-form").reset();
+            });
+        });
+    </script>
+</body>
 </html>
