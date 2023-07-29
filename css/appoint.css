@@ -43,7 +43,7 @@ span.logo {
     font-family: 'Pacifico', cursive;
     background-image: linear-gradient(90deg, #FF1493, #00BFFF);
     background-clip: text;
-    -webkit-background-clip: text; /* For Webkit compatibility */
+    -webkit-background-clip: text; 
     color: transparent;
     position: relative;
     left: -25px;
