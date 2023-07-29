@@ -266,6 +266,15 @@ nav ul li a:hover::after {
     text-decoration: underline;
 }
 
+.message-box {
+    display: none;
+    background-color: #f44336;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
 body{
     background-image: url("./../../makeover/images/lightblue.jpeg");
     background-repeat: no-repeat;

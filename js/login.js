@@ -1,3 +1,26 @@
+// Function to check if the user is registered
+async function checkIfUserIsRegistered(username, email) {
+    try {
+        const response = await fetch('path/to/check_user.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `username=${encodeURIComponent(username)}&email=${encodeURIComponent(email)}`,
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const data = await response.text();
+        return data === 'true';
+    } catch (error) {
+        console.error('Error checking if the user is registered:', error);
+        return false;
+    }
+}
+
 const wrapper = document.querySelector('.wrapper');
 const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');
@@ -57,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    registerForm.addEventListener('submit', (event) => {
+    registerForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         const usernameInput = document.getElementById('username');
@@ -90,7 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // If all validations pass, manually submit the form
+        // Check if the user is already registered
+        const isUserRegistered = await checkIfUserIsRegistered(usernameValue, emailValue);
+        if (isUserRegistered) {
+            alert('User with the same username or email already registered.');
+            return;
+        }
+
+        // If all validations pass and the user is not registered, manually submit the form
         registerForm.submit();
     });
 

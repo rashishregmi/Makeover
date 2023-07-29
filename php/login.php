@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 require '../php/connection.php';
@@ -15,12 +14,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: http://localhost/Makeover/html/Appointment2.html");
         exit;
     } else {
-        // Login failed, set error message for display on login.html
-        $_SESSION['login_error'] = "Invalid email or password";
-        header("Location: http://localhost/makeover/html/login.html"); // Redirect back to the login page
+        // Login failed, redirect back to login page with an error message
+        header("Location: http://localhost/Makeover/html/login.html#");
         exit;
     }
 }
+
+$conn->close();
 ?>
 
 
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-box login">
                 <h2>Login</h2>
 
-                <form action="./../../makeover/php/login.php" method="POST">
+                <form action="../php/login.php" method="POST">
                     <div class="input-box">
                 <span class="icon">
                     <ion-icon name="mail"></ion-icon>
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span class="icon">
                     <ion-icon name="lock-closed"></ion-icon>
                 </span>
-                <input type="password" id="password1" name="password" required>
+                <input type="password" id="password1" name="password1" required>
                 <label for="">Password</label>
             </div>
              
@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     I agree to terms & conditions
                 </label>
             </div>
-            <button type="submit" class="btn" id="btn2" name="btn">Register</button>
+            <button type="submit" class="btn" id="btn2" name="btn2">Register</button>
             <div class="login-register">
                 <p>Already have an account?
                     <a href="#" class="login-link">
@@ -134,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 
-    <script src="./../../makeover/js/login.js"></script>
+    <script src="../js/login.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
