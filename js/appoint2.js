@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Logout link functionality
-  const logoutLink = document.getElementById("logout-link2");
+  const logoutLink = document.getElementById("logout-link3");
   logoutLink.addEventListener("click", function (e) {
     e.preventDefault();
     const confirmationPopup = document.createElement("div");
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Full name validation
-  const fullnameInput = document.getElementById("fullname2");
+  const fullnameInput = document.getElementById("fullname3");
   const fullnameRegex = /^[a-zA-Z]{3,}\s[a-zA-Z]{3,}$/;
 
   const validateFullName = () => {
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // Contact number validation
-  const contactInput = document.getElementById("contact2");
+  const contactInput = document.getElementById("contact3");
   const contactRegex = /^(98|97)\d{8}$/;
 
   const validateContact = () => {
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // Form validation and submission
-  const bookButton = document.getElementById("bookButton2");
+  const bookButton = document.getElementById("bookButton3");
   bookButton.addEventListener("click", validateForm);
 
   function validateForm(event) {
@@ -85,10 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const errorMessages = document.querySelectorAll(".error-message");
     errorMessages.forEach((element) => (element.textContent = ""));
 
-    const fullname = document.getElementById("fullname2").value.trim();
-    const contact = document.getElementById("contact2").value.trim();
-    const selectedDate = document.getElementById("myCalender2").value;
-    const selectedTime = document.getElementById("timeInput2").value.trim();
+    const fullname = document.getElementById("fullname3").value.trim();
+    const contact = document.getElementById("contact3").value.trim();
+    const selectedDate = document.getElementById("myCalender3").value;
+    const selectedTime = document.getElementById("timeInput3").value.trim();
     const currentTime = new Date();
 
     let errorMessage = null;
@@ -161,7 +161,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const resetFormFields = () => {
     fullnameInput.value = "";
     contactInput.value = "";
-
+    
+    const calendarDateInput = document.getElementById("myCalender3");
+  const timeInput = document.getElementById("timeInput3");
+  calendarDateInput.value = ""; 
+  timeInput.value = ""; 
+ 
     const checkboxes = document.querySelectorAll('input[name="topics[]"]');
     checkboxes.forEach((checkbox) => (checkbox.checked = false));
   };

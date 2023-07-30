@@ -3,14 +3,11 @@ echo "submit_appointment2.php is being executed";
 
 include '../php/connection.php';
 
-$fullname = $_POST['fullname'];
-$contact = $_POST['contact'];
-
-// Check if the 'topics' array is set and not empty
-$services = isset($_POST['topics']) ? implode(", ", $_POST['topics']) : '';
-
-$selectedDate = $_POST['myCalender'];
-$selectedTime = $_POST['myDate'];
+$fullname = $_POST['fullname3'];
+$contact = $_POST['contact3'];
+$services = implode(", ", $_POST['topics']);
+$selectedDate = $_POST['myCalender3'];
+$selectedTime = $_POST['myDate3'];
 
 // Use prepared statements to prevent SQL injection
 $stmt = $conn->prepare("INSERT INTO appointments (fullname, contact, services, selected_date, selected_time) 
