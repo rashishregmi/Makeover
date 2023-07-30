@@ -11,15 +11,19 @@ $services = implode(", ", $_POST['topics']);
 $selectedDate = $_POST['myCalender'];
 $selectedTime = $_POST['myDate'];
 
-$sql = "INSERT INTO appointments (first_name, last_name, contact, email, services, selected_date, selected_time) 
-        VALUES ('$firstName', '$lastName', '$contact', '$email', '$services', '$selectedDate', '$selectedTime')";
+// Use prepared statements to prevent SQL injection
+$stmt = $conn->prepare("INSERT INTO appointments (first_name, last_name, contact, email, services, selected_date, selected_time) 
+                       VALUES (?, ?, ?, ?, ?, ?, ?)");
 
-if ($conn->query($sql) === TRUE) {
+$stmt->bind_param("sssssss", $firstName, $lastName, $contact, $email, $services, $selectedDate, $selectedTime);
+
+if ($stmt->execute()) {
     echo "Appointment booked successfully!";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $stmt->error;
 }
 
+$stmt->close();
 $conn->close();
 
 header("Location: http://localhost/Makeover/html/Appointment.html");

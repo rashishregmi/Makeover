@@ -1,4 +1,4 @@
-
+ 
   function validateForm(event) {
     event.preventDefault(); // Prevent form submission
 
@@ -13,8 +13,8 @@
     const checkboxes = document.querySelectorAll("input[type=checkbox]:checked");
     const calendarDate = document.querySelector("input[type=date]").value;
     const time = document.querySelector("input[type=time]").value.trim();
-    const openingHour = 9;
-    const closingHour = 19;
+    const openingHour = 10;
+    const closingHour = 18;
 
     let errorMessage = null;
 
@@ -57,8 +57,14 @@
         errorMessage = "Date must be today or in the future.";
       } else {
         const selectedTime = new Date(`2000-01-01T${time}`);
-        if (selectedTime.getHours() < openingHour || selectedTime.getHours() >= closingHour) {
-          errorMessage = "Opening hours are from 9 am to 7 pm.";
+        const currentHour = new Date().getHours();
+        const currentMinute = new Date().getMinutes();
+
+        // Check if time is at least 30 minutes after current time
+        if (selectedTime.getHours() < openingHour || selectedTime.getHours() > closingHour ||
+            (selectedTime.getHours() === closingHour && selectedTime.getMinutes() > 0) ||
+            (selectedTime.getHours() === currentHour && selectedTime.getMinutes() <= currentMinute + 30)) {
+          errorMessage = "Appointment can be booked only after half hour earlier";
         }
       }
     }
@@ -77,5 +83,3 @@
   const bookButton = document.getElementById("bookButton");
   bookButton.addEventListener("click", validateForm);
  
-
-  
