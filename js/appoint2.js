@@ -25,59 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Full name validation
-  const fullnameInput = document.getElementById("fullname3");
-  const fullnameRegex = /^[a-zA-Z]{3,}\s[a-zA-Z]{3,}$/;
-
-  const validateFullName = () => {
-    const fullname = fullnameInput.value.trim();
-    if (!fullnameRegex.test(fullname)) {
-      alert("Enter your fullname. It must be at least 3 characters before the space, followed by a space, and then at least 3 characters after the space.");
-      fullnameInput.focus();
-      return false;
-    }
-    return true;
-  };
-
-  // Contact number validation
-  const contactInput = document.getElementById("contact3");
-  const contactRegex = /^(98|97)\d{8}$/;
-
-  const validateContact = () => {
-    const contact = contactInput.value.trim();
-    if (!contactRegex.test(contact)) {
-      alert("Contact Number must be exactly 10 digits and start with '98' or '97'.");
-      contactInput.focus();
-      return false;
-    }
-    return true;
-  };
-
-  // Helper function to check if a time is valid (between 10:00 AM and 6:00 PM, in 30-minute increments)
-  const isValidTime = (time) => {
-    const minTime = new Date();
-    minTime.setHours(10, 0, 0); // Minimum time: 10:00 AM
-    const maxTime = new Date();
-    maxTime.setHours(18, 0, 0); // Maximum time: 6:00 PM
-
-    const selectedTime = new Date(`2000-01-01T${time}`);
-    if (selectedTime < minTime || selectedTime >= maxTime) {
-      return false;
-    }
-
-    // Check if time is in 30-minute increments
-    const minutes = selectedTime.getMinutes();
-    if (minutes !== 0 && minutes !== 30) {
-      return false;
-    }
-
-    return true;
-  };
-
-  // Form validation and submission
-  const bookButton = document.getElementById("bookButton3");
-  bookButton.addEventListener("click", validateForm);
-
   function validateForm(event) {
     event.preventDefault(); // Prevent form submission
 
@@ -85,89 +32,73 @@ document.addEventListener("DOMContentLoaded", function () {
     const errorMessages = document.querySelectorAll(".error-message");
     errorMessages.forEach((element) => (element.textContent = ""));
 
-    const fullname = document.getElementById("fullname3").value.trim();
+    const fullnameInput = document.getElementById("fullname3");
+    const fullname = fullnameInput.value.trim();
     const contact = document.getElementById("contact3").value.trim();
-    const selectedDate = document.getElementById("myCalender3").value;
-    const selectedTime = document.getElementById("timeInput3").value.trim();
-    const currentTime = new Date();
+    const checkboxes = document.querySelectorAll("input[type=checkbox]:checked");
+    const calendarDate = document.getElementById("myCalender3").value;
+    const time = document.getElementById("timeInput3").value.trim();
+    const openingHour = 10;
+    const closingHour = 18;
 
     let errorMessage = null;
 
     // Full Name Validation
-    if (!validateFullName()) {
-      return;
+    if (!/^.{2,}\s.{3,}(\s.{3,})*$/.test(fullname)) {
+      errorMessage = "Enter your Fullname";
+      fullnameInput.focus();
     }
 
     // Contact Number Validation
-    if (!validateContact()) {
-      return;
+    else if (!contact || !/^[9][87]\d{8}$/.test(contact)) {
+      errorMessage = "Contact number should start with '98' or '97' and be 10 digits long.";
     }
 
     // Check if at least one checkbox is checked
-    const checkboxes = document.querySelectorAll('input[name="topics[]"]:checked');
-    if (checkboxes.length === 0) {
+    else if (checkboxes.length === 0) {
       errorMessage = "Please select at least one service.";
-      alert(errorMessage);
-      return;
     }
 
     // Date and Time Validation
-    const selectedDateTime = new Date(`${selectedDate}T${selectedTime}`);
-    const minTimeDifference = 30 * 60 * 1000; // 30 minutes in milliseconds
+    else if (!calendarDate || !time) {
+      errorMessage = "Please select both date and time.";
+    }
 
     // Date Validation (must be today or in the future)
-    if (selectedDateTime < currentTime) {
-      errorMessage = "Date must be today or in the future.";
-      alert(errorMessage);
-      return;
+    else {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const selectedDate = new Date(calendarDate);
+      if (selectedDate < today) {
+        errorMessage = "Date must be today or in the future.";
+      } else {
+        const selectedTime = new Date(`2000-01-01T${time}`);
+        const currentHour = new Date().getHours();
+        const currentMinute = new Date().getMinutes();
+
+        // Check if time is at least 30 minutes after current time
+        if (
+          selectedTime.getHours() < openingHour ||
+          selectedTime.getHours() > closingHour ||
+          (selectedTime.getHours() === closingHour && selectedTime.getMinutes() > 0) ||
+          (selectedTime.getHours() === currentHour && selectedTime.getMinutes() <= currentMinute + 30)
+        ) {
+          errorMessage = "Appointment can be booked only after half hour earlier";
+        }
+      }
     }
 
-    // Time Validation (must be between 10:00 AM and 6:00 PM, in 30-minute increments)
-    const openingHour = 10;
-    const closingHour = 18;
-    const currentHour = currentTime.getHours();
-    const currentMinute = currentTime.getMinutes();
-    const selectedTimeHour = parseInt(selectedTime.split(":")[0]);
-    const selectedTimeMinute = parseInt(selectedTime.split(":")[1]);
-
-    if (
-      selectedTimeHour < openingHour ||
-      selectedTimeHour > closingHour ||
-      (selectedTimeHour === closingHour && selectedTimeMinute > 0) ||
-      (selectedTimeHour === currentHour && selectedTimeMinute <= currentMinute + 30)
-    ) {
-      errorMessage = "Appointment can be booked only after half an hour earlier.";
-      alert(errorMessage);
-      return;
-    }
-
-    // Check if time is at least 30 minutes after the current time
-    const timeDifference = selectedDateTime - currentTime;
-    if (timeDifference < minTimeDifference) {
-      errorMessage = "You can only book an appointment at least 30 minutes from now.";
+    // Show error message in alert if there is an error
+    if (errorMessage !== null) {
       alert(errorMessage);
       return;
     }
 
     // If no errors, proceed with form submission
-    showSuccessMessage();
-    resetFormFields();
+    alert("Appointment booked!");
+    document.getElementById("appointment-form2").submit();
   }
 
-  const showSuccessMessage = () => {
-    alert("Appointment booked successfully!");
-  };
-
-  const resetFormFields = () => {
-    fullnameInput.value = "";
-    contactInput.value = "";
-    
-    const calendarDateInput = document.getElementById("myCalender3");
-  const timeInput = document.getElementById("timeInput3");
-  calendarDateInput.value = ""; 
-  timeInput.value = ""; 
- 
-    const checkboxes = document.querySelectorAll('input[name="topics[]"]');
-    checkboxes.forEach((checkbox) => (checkbox.checked = false));
-  };
+  const bookButton = document.getElementById("bookButton3");
+  bookButton.addEventListener("click", validateForm);
 });
