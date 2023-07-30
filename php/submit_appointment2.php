@@ -1,28 +1,32 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+echo "submit_appointment2.php is being executed";
 
-require '../php/connection.php';
+include '../php/connection.php';
 
 $fullname = $_POST['fullname'];
 $contact = $_POST['contact'];
-$services = implode(", ", $_POST['topics']);
+
+// Check if the 'topics' array is set and not empty
+$services = isset($_POST['topics']) ? implode(", ", $_POST['topics']) : '';
+
 $selectedDate = $_POST['myCalender'];
 $selectedTime = $_POST['myDate'];
-$username = $_POST['username']; // Get the username from the form
 
-$sql = "INSERT INTO appointments (first_name, last_name, contact, email, services, selected_date, selected_time, username) 
-        VALUES (?, '', ?, '', ?, ?, ?, ?)";
+// Use prepared statements to prevent SQL injection
+$stmt = $conn->prepare("INSERT INTO appointments (fullname, contact, services, selected_date, selected_time) 
+                       VALUES (?, ?, ?, ?, ?)");
 
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("sssssss", $fullname, $contact, $services, $selectedDate, $selectedTime, $username);
+$stmt->bind_param("sssss", $fullname, $contact, $services, $selectedDate, $selectedTime);
 
 if ($stmt->execute()) {
     echo "Appointment booked successfully!";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $stmt->error;
 }
 
 $stmt->close();
 $conn->close();
+
+header("Location: http://localhost/Makeover/html/Appointment.html");
+exit;
 ?>

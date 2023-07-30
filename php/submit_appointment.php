@@ -1,7 +1,8 @@
 <?php
 echo "appointment.php is being executed";
 
-require '../php/connection.php';
+include '../php/connection.php';
+
 
 $firstName = $_POST['firstname'];
 $lastName = $_POST['lastname'];
