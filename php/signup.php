@@ -1,17 +1,33 @@
 <?php
-error_reporting(E_ALL);
 ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 require '../php/connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Check if all required fields are provided
     if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["password"])) {
         $username = $_POST["username"];
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
-        $stmt = $conn->prepare($sql);
+        // Check for duplicate entries
+        $check_duplicate_sql = "SELECT * FROM users WHERE username = ? OR email = ?";
+        $check_stmt = $conn->prepare($check_duplicate_sql);
+        $check_stmt->bind_param("ss", $username, $email);
+        $check_stmt->execute();
+        $check_result = $check_stmt->get_result();
+
+        if ($check_result->num_rows > 0) {
+            // User with the same username or email already exists
+            header("Location: http://localhost/Makeover/html/login.html#duplicate");
+            exit;
+        }
+
+        // Insert the new user if no duplicate entries found
+        $insert_sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($insert_sql);
         $stmt->bind_param("sss", $username, $email, $password);
 
         try {
@@ -25,19 +41,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 exit;
             }
         } catch (mysqli_sql_exception $e) {
-            // Check if the error is a duplicate entry error
-            if ($stmt->errno === 1062) { // Error code for duplicate entry
-                // Redirect back to signup page with an error message for duplicate username
-                header("Location: http://localhost/Makeover/html/login.html#duplicate");
-                exit;
-            } else {
-                // Redirect back to signup page with a general error message
-                header("Location: http://localhost/Makeover/html/login.html#error");
-                exit;
-            }
+            // Redirect back to signup page with a general error message
+            header("Location: http://localhost/Makeover/html/login.html#error");
+            exit;
         }
 
         $stmt->close();
+    } else {
+        // Missing required fields: username, email, or password
+        header("Location: http://localhost/Makeover/html/login.html#error");
+        exit;
     }
 }
 

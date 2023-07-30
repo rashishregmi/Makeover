@@ -1,26 +1,3 @@
-// Function to check if the user is registered
-async function checkIfUserIsRegistered(username, email) {
-    try {
-        const response = await fetch('../php/check_user.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `username=${encodeURIComponent(username)}&email=${encodeURIComponent(email)}`,
-        });
-
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-
-        const data = await response.text();
-        return data === 'true';
-    } catch (error) {
-        console.error('Error checking if the user is registered:', error);
-        return false;
-    }
-}
-
 function validateInputFields(formBoxClass) {
     const inputFields = document.querySelectorAll(`${formBoxClass} input`);
     let isValid = true;
@@ -136,13 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Check if the user is already registered
-        const isUserRegistered = await checkIfUserIsRegistered(usernameValue, emailValue);
-        if (isUserRegistered) {
-            alert('User with the same username or email already registered.');
-            return;
-        }
-
         // If all validations pass and the user is not registered, manually submit the form
         registerForm.submit();
     });
@@ -153,11 +123,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    const emailInputLogin = document.getElementById('email1');
-    const passwordInputLogin = document.getElementById('password1');
-
     loginForm.addEventListener('submit', (event) => {
         event.preventDefault();
+
+        const emailInputLogin = document.getElementById('email1');
+        const passwordInputLogin = document.getElementById('password1');
 
         const emailValue = emailInputLogin.value.trim();
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
