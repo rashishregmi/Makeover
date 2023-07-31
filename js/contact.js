@@ -74,7 +74,8 @@ document.addEventListener("DOMContentLoaded", function () {
       fetch('../php/submit_contact.php', {
         method: 'POST',
         body: formData
-      })
+    })
+    
       .then(response => response.json())
       .then(data => {
         alert(data.message);
