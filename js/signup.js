@@ -116,64 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-// Check for duplicate entries with a timestamp to prevent caching
-const duplicateCheckUrl = `../php/check_user.php?timestamp=${Date.now()}`;
-        const formData = new FormData();
-        formData.append('username', usernameValue);
-        formData.append('email', emailValue);
-
-        try {
-            const response = await fetch(duplicateCheckUrl, {
-                method: 'POST',
-                body: formData
-            });
-
-            const data = await response.text();
-            if (data === "true") {
-                // Display error message for duplicate user
-                const errorMessageElement = document.getElementById('error-message');
-                if (errorMessageElement) {
-                    errorMessageElement.textContent = 'Error: Username or Email already exists.';
-                    errorMessageElement.style.color = 'red';
-                }
-                return;
-            }
-
-            // If all validations pass and the user is not registered, manually submit the form
-            registerForm.submit();
-        } catch (error) {
-            console.error("Error checking for duplicate user:", error);
-            alert("An error occurred while processing the registration. Please try again later.");
-        }
-    });
-
-    const loginForm = document.querySelector('.form-box.login form');
-    if (!loginForm) {
-        console.error("Login form not found in the DOM.");
-        return;
-    }
-
-    loginForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-
-        const emailInputLogin = document.getElementById('email1');
-        const passwordInputLogin = document.getElementById('password1');
-
-        const emailValue = emailInputLogin.value.trim();
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(emailValue) || emailValue.length < 5) {
-            alert('Please enter a valid email address with at least 5 characters.');
-            return;
-        }
-
-        const passwordValue = passwordInputLogin.value.trim();
-        const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-        if (!passwordPattern.test(passwordValue)) {
-            alert('Password should have at least 8 characters, 1 capital letter, and 1 special character.');
-            return;
-        }
-
         // If all validations pass, manually submit the form
-        loginForm.submit();
+        registerForm.submit();
     });
 });
