@@ -88,20 +88,21 @@
 
                 </div>
                 <div class="contact-box">
-                    <form>
+                    <form id="contactForm" method="post" action="submit_contact.php">
+
                         <h3>Get In Touch</h3>
                         <div class="row">
-                            <input type="text" class="input-field " placeholder="First Name" required>
-                            <input type="text" class="input-field" placeholder="Last Name" required>
+                            <input type="text" class="input-field " placeholder="First Name" name="first_name" required>
+                            <input type="text" class="input-field" placeholder="Last Name" name="last_name" required>
                         </div>
                         <div class="row">
-                            <input type="phone" class="input-field" placeholder="Contact Number" required>
-                            <input type="text" class="input-field" placeholder="Email" required>
+                            <input type="phone" class="input-field" placeholder="Contact Number" name="contact_number" required>
+                            <input type="text" class="input-field" placeholder="Email" name="email" required>
                         </div>
 
-                        <textarea type="text" class="input-field-message" textarea-field" placeholder="Your Message"
-                            style="resize: horizontal vertical; max-width: 100%;"></textarea>
-                        <button type="button" class="btn">Send</button>
+                        <textarea class="input-field-message" placeholder="Your Message" name="message"
+        style="resize: horizontal vertical; max-width: 100%;" required></textarea>
+                        <button type="submit" class="btn">Send</button>
                     </form>
                 </div>
             </div><br>

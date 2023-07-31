@@ -63,10 +63,30 @@ document.addEventListener("DOMContentLoaded", function () {
     if (errorMessages.length > 0) {
       alert(errorMessages[0]);
     } else {
-      // If no errors, proceed with form submission (you can implement this part as needed)
-      alert("Form submitted successfully!");
-      document.querySelector('form').reset(); // Reset the form fields after successful submission
-      location.reload(); // Reload the page after successful submission
+      // If no errors, proceed with form submission
+      const formData = new FormData();
+      formData.append('first_name', firstNameValue);
+      formData.append('last_name', lastNameValue);
+      formData.append('contact_number', contactNumberValue);
+      formData.append('email', emailValue);
+      formData.append('message', messageValue);
+
+      fetch('../php/submit_contact.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert(data.message);
+        if (data.success) {
+          document.querySelector('form').reset(); // Reset the form fields after successful submission
+          location.reload(); // Reload the page after successful submission
+        }
+      })
+      .catch(error => {
+        alert("An error occurred while submitting the form.");
+        console.error('Error:', error);
+      });
     }
   });
 });
