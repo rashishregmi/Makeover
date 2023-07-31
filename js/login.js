@@ -69,8 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // Check for filled inputs on page load
         if (input.value.trim() !== '') {
             inputBox.classList.add('input-filled');
+            label.style.top = '-5px';
         }
     });
 
