@@ -25,7 +25,11 @@ document.addEventListener("DOMContentLoaded", function () {
   filterAlphabeticInput(firstNameInput);
   filterAlphabeticInput(lastNameInput);
 
-  sendButton.addEventListener("click", function () {
+  const contactForm = document.getElementById('contactForm');
+
+  contactForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
     // Reset previous error messages
     const errorMessages = [];
 
@@ -64,24 +68,16 @@ document.addEventListener("DOMContentLoaded", function () {
       alert(errorMessages[0]);
     } else {
       // If no errors, proceed with form submission
-      const formData = new FormData();
-      formData.append('first_name', firstNameValue);
-      formData.append('last_name', lastNameValue);
-      formData.append('contact_number', contactNumberValue);
-      formData.append('email', emailValue);
-      formData.append('message', messageValue);
-
+      const formData = new FormData(contactForm);
       fetch('../php/submit_contact.php', {
         method: 'POST',
         body: formData
-    })
-    
+      })
       .then(response => response.json())
       .then(data => {
         alert(data.message);
         if (data.success) {
-          document.querySelector('form').reset(); // Reset the form fields after successful submission
-          location.reload(); // Reload the page after successful submission
+          contactForm.reset(); // Reset the form fields after successful submission
         }
       })
       .catch(error => {
