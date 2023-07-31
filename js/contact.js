@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to check if a string contains only alphabetical characters
     function isAlphabetical(value) {
-      return /^[A-Za-z]+$/.test(value);
+      return /^[A-Za-z\s]+$/.test(value);
     }
 
     // Function to filter the input to allow only alphabetic characters
@@ -32,21 +32,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Validate first name
       const firstNameValue = firstNameInput.value.trim();
-      if (!isAlphabetical(firstNameValue) || firstNameValue.length < 3) {
-        errorMessages.push("First name should contain at least 3 alphabetical characters.");
+      if (!isAlphabetical(firstNameValue) || firstNameValue.length < 2) {
+        errorMessages.push("Enter your First name");
       }
 
       // Validate last name
       const lastNameValue = lastNameInput.value.trim();
       if (!isAlphabetical(lastNameValue) || lastNameValue.length < 3) {
-        errorMessages.push("Last name should contain at least 3 alphabetical characters.");
+        errorMessages.push("Enter your Last name");
       }
 
-      // Validate contact number
-      const contactNumberValue = contactNumberInput.value.trim();
-      if (!/^98|97\d{8}$/.test(contactNumberValue)) {
-        errorMessages.push("Contact number should start with '98' or '97' and be 10 digits long.");
-      }
+       // Validate contact number
+       const contactNumberValue = contactNumberInput.value.trim();
+       if (!/^98|97\d{8}$/.test(contactNumberValue) || contactNumberValue.length !== 10) {
+         errorMessages.push("Contact number should start with '98' or '97' and be exactly 10 digits long.");
+       }
 
       // Validate email
       const emailValue = emailInput.value.trim();
