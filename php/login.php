@@ -15,11 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
-            // Login successful, redirect to dashboard or home page
+            // Login successful, redirect to the appointment page
             header("Location: http://localhost/Makeover/html/Appointment2.html");
             exit;
         } else {
-            // Login failed, redirect back to login page with an error message
+            // Login failed, redirect back to the login page with an error message
             header("Location: http://localhost/Makeover/html/login.html#");
             exit;
         }

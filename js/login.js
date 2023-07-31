@@ -1,3 +1,4 @@
+// Function to validate input fields in a form box
 function validateInputFields(formBoxClass) {
     const inputFields = document.querySelectorAll(`${formBoxClass} input`);
     let isValid = true;
@@ -115,20 +116,34 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // If all validations pass and the user is not registered, manually submit the form
-        const formData = new FormData(registerForm);
-        const response = await fetch('../php/check_user.php', {
-            method: 'POST',
-            body: formData,
-        });
+        // Check for duplicate entries
+        const duplicateCheckUrl = `../php/check_user.php`;
+        const formData = new FormData();
+        formData.append('username', usernameValue);
+        formData.append('email', emailValue);
 
-        const result = await response.text();
-        if (result === "true") {
-            document.getElementById('error-message').innerText = "Username or email already exists.";
-            document.getElementById('error-message').style.display = "block";
-        } else {
-            // User does not exist, proceed with registration
+        try {
+            const response = await fetch(duplicateCheckUrl, {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.text();
+            if (data === "true") {
+                // Display error message for duplicate user
+                const errorMessageElement = document.getElementById('error-message');
+                if (errorMessageElement) {
+                    errorMessageElement.textContent = 'Error: Username or Email already exists.';
+                    errorMessageElement.style.color = 'red';
+                }
+                return;
+            }
+
+            // If all validations pass and the user is not registered, manually submit the form
             registerForm.submit();
+        } catch (error) {
+            console.error("Error checking for duplicate user:", error);
+            alert("An error occurred while processing the registration. Please try again later.");
         }
     });
 
