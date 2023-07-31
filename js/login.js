@@ -114,7 +114,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // If all validations pass and the user is not registered, manually submit the form
-        registerForm.submit();
+        const formData = new FormData(registerForm);
+        const response = await fetch('../php/check_user.php', {
+            method: 'POST',
+            body: formData,
+        });
+
+        const result = await response.text();
+        if (result === "true") {
+            document.getElementById('error-message').innerText = "Username or email already exists.";
+            document.getElementById('error-message').style.display = "block";
+        } else {
+            // User does not exist, proceed with registration
+            registerForm.submit();
+        }
     });
 
     const loginForm = document.querySelector('.form-box.login form');

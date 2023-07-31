@@ -30,6 +30,7 @@
     <div class="main-container">
         <div class="wrapper">
             <div class="form-box login">
+
                 <h2>Login</h2>
                 <form action="../php/login.php" method="POST" id="login-form">
                     <div class="input-box">
@@ -57,6 +58,9 @@
 
             <div class="form-box register">
                 <h2>Registration</h2>
+
+
+                <div id="error-message" style="display: none; color: red;"></div>
                 <form action="../php/signup.php" method="POST" id="register-form">
                     <div class="input-box">
                         <span class="icon">
@@ -85,7 +89,7 @@
                             I agree to terms & conditions
                         </label>
                     </div>
-                    <button type="submit" class="btn" id="btn">Register</button>
+                    <button type="submit" class="btn" id="btn" name="btn">Register</button>
                     <div class="login-register">
                         <p>Already have an account?
                             <a href="#" class="login-link">Login</a>
@@ -96,7 +100,7 @@
         </div>
     </div>
 
-    <div id="error-message" style="display: none; color: red;"></div>
+     
 
     <script src="../js/login.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
