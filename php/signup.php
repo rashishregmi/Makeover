@@ -30,7 +30,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             try {
                 if ($stmt->execute()) {
-                    // Registration successful, redirect back to login page with a success message
+                    // Registration successful, send data to makeover_admin
+                    if (isset($_POST["username"]) && isset($_POST["email"])) {
+                        $username = $_POST["username"];
+                        $email = $_POST["email"];
+                
+                        // Send user data to makeover_admin
+                        require '../php/transfer_data.php';
+                        sendUserDataToMakeoverAdmin($username, $email);
+                    }
                     header("Location: http://localhost/Makeover/html/login.html#success");
                     exit;
                 } else {

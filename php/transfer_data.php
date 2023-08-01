@@ -1,52 +1,54 @@
 <?php
-// Include connection files for both databases
-include('../php/connection.php');
-include('../makeover_admin/includes/dbconnection.php');
+// Include connection.php to connect to the databases
+include '../php/connection.php';
+include '../makeover_admin/includes/dbconnection.php';
 
-// Retrieve data from makeover database users table (username, email)
-$sqlUsers = "SELECT username, email FROM users";
-$resultUsers = $conn->query($sqlUsers);
+function sendUserDataToMakeoverAdmin($username, $email)
+{
+    global $conn;
 
-// Retrieve data from makeover database appointments table (contact, services)
-$sqlAppointments = "SELECT contact, services FROM appointments";
-$resultAppointments = $conn->query($sqlAppointments);
+    // Check if the user exists in the 'users' table
+    $check_user_sql = "SELECT * FROM users WHERE username = ?";
+    $check_user_stmt = $conn->prepare($check_user_sql);
+    $check_user_stmt->bind_param("s", $username);
+    $check_user_stmt->execute();
+    $check_user_result = $check_user_stmt->get_result();
 
-// Create an array to store the combined data
-$combinedData = array();
+    if ($check_user_result->num_rows > 0) {
+        $user_data = $check_user_result->fetch_assoc();
+        $fullname = $user_data['fullname'];
+        $contact = $user_data['contact'];
 
-// Combine data from users and appointments tables
-while (($rowUsers = $resultUsers->fetch_assoc()) && ($rowAppointments = $resultAppointments->fetch_assoc())) {
-    $combinedData[] = array(
-        'Name' => $rowUsers['username'],
-        'Email' => $rowUsers['email'],
-        'MobileNumber' => $rowAppointments['contact'],
-        'Details' => $rowAppointments['services']
-    );
-}
+        // Check if the user has an appointment in the 'appointments' table
+        $check_appointment_sql = "SELECT * FROM appointments WHERE username = ?";
+        $check_appointment_stmt = $conn->prepare($check_appointment_sql);
+        $check_appointment_stmt->bind_param("s", $username);
+        $check_appointment_stmt->execute();
+        $check_appointment_result = $check_appointment_stmt->get_result();
 
-// Insert combined data into tblcustomers table in makeover_admin database
-if (!empty($combinedData)) {
-    foreach ($combinedData as $data) {
-        $name = $data['Name'];
-        $email = $data['Email'];
-        $mobileNumber = $data['MobileNumber'];
-        $details = $data['Details'];
+        if ($check_appointment_result->num_rows > 0) {
+            $appointment_data = $check_appointment_result->fetch_assoc();
+            $services = $appointment_data['services'];
 
-        // Insert data into tblcustomers table in makeover_admin database
-        $insertQuery = "INSERT INTO tblcustomers (Name, Email, MobileNumber, Details) VALUES (?, ?, ?, ?)";
-        $stmt = $con->prepare($insertQuery);
-        $stmt->bind_param("ssss", $name, $email, $mobileNumber, $details);
-        $stmt->execute();
+            // Insert user data into the 'makeover_admin.tblcustomers' table
+            $insert_data_sql = "INSERT INTO makeover_admin.tblcustomers (Name, Email, MobileNumber, Details) VALUES (?, ?, ?, ?)";
+            $insert_data_stmt = $conn->prepare($insert_data_sql);
+            $insert_data_stmt->bind_param("ssss", $fullname, $email, $contact, $services);
+            $insert_data_stmt->execute();
+        }
     }
 }
 
-// Close the statements and connections
-$stmt->close();
+// Check if the request method is POST
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (isset($_POST["username"]) && isset($_POST["email"])) {
+        $username = $_POST["username"];
+        $email = $_POST["email"];
+
+        // Send user data to makeover_admin
+        sendUserDataToMakeoverAdmin($username, $email);
+    }
+}
+
 $conn->close();
-
-echo "Data transferred successfully!";
-
-// Redirect to the same page (appointment2.php) after data transfer
-header("Location: http://localhost/Makeover/html/appointment2.html");
-exit;
 ?>
