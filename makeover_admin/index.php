@@ -11,7 +11,7 @@ if(isset($_POST['login']))
     $ret=mysqli_fetch_array($query);
     if($ret>0){
       $_SESSION['bpmsaid']=$ret['ID'];
-     header('location: ../makeover_admin/dashboard.php');
+     header('location: http://localhost/Makeover/makeover_admin/dashboard.php');
     }
     else{
     $msg="Invalid Details.";
@@ -73,7 +73,7 @@ if(isset($_POST['login']))
 							<input type="submit" name="login" value="Sign In">
 							<div class="forgot-grid">
 								
-								 
+								  
 								<div class="clearfix"> </div>
 							</div>
 							<div class="forgot-grid">

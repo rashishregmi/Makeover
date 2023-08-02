@@ -1,13 +1,12 @@
 <?php
 session_start();
 error_reporting(0);
-include('../makeover_admin/includes/dbconnection.php');
-
+include('includes/dbconnection.php');
 if (strlen($_SESSION['bpmsaid']==0)) {
-	header('location: ../makeover_admin/logout.php');
-  
+  header('location:logout.php');
   } 
      ?>
+     
 <!DOCTYPE HTML>
 <html>
 <head>

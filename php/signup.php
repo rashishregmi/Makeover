@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        // Check for duplicate entries
+        // Check for duplicate entries in the 'users' table
         $check_duplicate_sql = "SELECT * FROM users WHERE username = ? OR email = ?";
         $check_stmt = $conn->prepare($check_duplicate_sql);
         $check_stmt->bind_param("ss", $username, $email);
@@ -23,24 +23,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // User with the same username or email already exists
             $errorMessage = "Error: The username or email is already registered.";
         } else {
-            // Insert the new user if no duplicate entries found
+            // Insert the new user into the 'users' table if no duplicate entries found
             $insert_sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
             $stmt = $conn->prepare($insert_sql);
             $stmt->bind_param("sss", $username, $email, $password);
 
             try {
                 if ($stmt->execute()) {
-                    // Registration successful, send data to makeover_admin
-                    if (isset($_POST["username"]) && isset($_POST["email"])) {
-                        $username = $_POST["username"];
-                        $email = $_POST["email"];
-                
-                        // Send user data to makeover_admin
-                        require '../php/transfer_data.php';
-                        sendUserDataToMakeoverAdmin($username, $email);
+                    // Registration successful, send data to makeover_admin.tblcustomers
+                    $insert_customer_sql = "INSERT INTO makeover_admin.tblcustomers (Name, Email) VALUES (?, ?)";
+                    $customer_stmt = $conn->prepare($insert_customer_sql);
+                    $customer_stmt->bind_param("ss", $username, $email);
+
+                    if ($customer_stmt->execute()) {
+                        // Data sent to makeover_admin.tblcustomers successfully
+                        header("Location: http://localhost/Makeover/html/login.html#success");
+                        exit;
+                    } else {
+                        // Redirect back to signup page with a general error message
+                        $errorMessage = "Error: Unable to register. Please try again later.";
                     }
-                    header("Location: http://localhost/Makeover/html/login.html#success");
-                    exit;
                 } else {
                     // Redirect back to signup page with a general error message
                     $errorMessage = "Error: Unable to register. Please try again later.";
@@ -51,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
 
             $stmt->close();
+            $customer_stmt->close();
         }
     } else {
         // Missing required fields: username, email, or password
