@@ -54,9 +54,9 @@ if (strlen($_SESSION['bpmsaid']==0)) {
 <body class="cbp-spmenu-push">
 <div class="main-content">
 		
-		 <?php include_once('includes/sidebar.php');?>
+		 <?php include_once('../makeover_admin/includes/sidebar.php');?>
 		
-	<?php include_once('includes/header.php');?>
+	<?php include_once('../makeover_admin/includes/header.php');?>
 		<!-- main content start-->
 		<div id="page-wrapper" class="row calender widget-shadow">
 			<div class="main-page">
@@ -240,7 +240,7 @@ $totalsale+=$total_sale;
 			</div>
 		</div>
 		<!--footer-->
-		<?php include_once('includes/footer.php');?>
+		<?php include_once('../makeover_admin/includes/footer.php');?>
         <!--//footer-->
 	</div>
 	<!-- Classie -->
