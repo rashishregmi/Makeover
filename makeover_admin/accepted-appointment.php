@@ -1,9 +1,11 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/dbconnection.php');
+include('../makeover_admin/includes/dbconnection.php');
 if (strlen($_SESSION['bpmsaid']==0)) {
-  header('location:logout.php');
+
+  header('location: ../makeover_admin/logout.php');
+
   } else{
 
 
@@ -16,39 +18,39 @@ if (strlen($_SESSION['bpmsaid']==0)) {
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Bootstrap Core CSS -->
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="../makeover_admin/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="../makeover_admin/css/style.css" rel='stylesheet' type='text/css' />
 <!-- font CSS -->
 <!-- font-awesome icons -->
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="../makeover_admin/css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome icons -->
  <!-- js-->
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/modernizr.custom.js"></script>
+<script src="../makeover_admin/js/jquery-1.11.1.min.js"></script>
+<script src="../makeover_admin/js/modernizr.custom.js"></script>
 <!--webfonts-->
 <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <!--//webfonts--> 
 <!--animate-->
-<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
-<script src="js/wow.min.js"></script>
+<link href="../makeover_admin/css/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="../makeover_admin/js/wow.min.js"></script>
 	<script>
 		 new WOW().init();
 	</script>
 <!--//end-animate-->
 <!-- Metis Menu -->
-<script src="js/metisMenu.min.js"></script>
-<script src="js/custom.js"></script>
-<link href="css/custom.css" rel="stylesheet">
+<script src="../makeover_admin/js/metisMenu.min.js"></script>
+<script src="../makeover_admin/js/custom.js"></script>
+<link href="../makeover_admin/css/custom.css" rel="stylesheet">
 <!--//Metis Menu -->
 </head> 
 <body class="cbp-spmenu-push">
 	<div class="main-content">
 		<!--left-fixed -navigation-->
-		 <?php include_once('includes/sidebar.php');?>
+		 <?php include_once('../makeover_admin/includes/sidebar.php');?>
 		<!--left-fixed -navigation-->
 		<!-- header-starts -->
-		 <?php include_once('includes/header.php');?>
+		 <?php include_once('../makeover_admin/includes/header.php');?>
 		<!-- //header-ends -->
 		<!-- main content start-->
 		<div id="page-wrapper">
@@ -68,7 +70,7 @@ while ($row=mysqli_fetch_array($ret)) {
 
 ?>
 
-						 <tr> <th scope="row"><?php echo $cnt;?></th> <td><?php  echo $row['AptNumber'];?></td> <td><?php  echo $row['Name'];?></td><td><?php  echo $row['PhoneNumber'];?></td><td><?php  echo $row['AptDate'];?></td> <td><?php  echo $row['AptTime'];?></td> <td><a href="view-appointment.php?viewid=<?php echo $row['ID'];?>">View</a></td> </tr>   <?php 
+						 <tr> <th scope="row"><?php echo $cnt;?></th> <td><?php  echo $row['AptNumber'];?></td> <td><?php  echo $row['Name'];?></td><td><?php  echo $row['PhoneNumber'];?></td><td><?php  echo $row['AptDate'];?></td> <td><?php  echo $row['AptTime'];?></td> <td><a href="../makeover_admin/view-appointment.php?viewid=<?php echo $row['ID'];?>">View</a></td> </tr>   <?php 
 $cnt=$cnt+1;
 }?></tbody> </table> 
 					</div>
@@ -76,7 +78,7 @@ $cnt=$cnt+1;
 			</div>
 		</div>
 		<!--footer-->
-		 <?php include_once('includes/footer.php');?>
+		 <?php include_once('../makeover_admin/includes/footer.php');?>
         <!--//footer-->
 	</div>
 	<!-- Classie -->
@@ -100,11 +102,11 @@ $cnt=$cnt+1;
 			}
 		</script>
 	<!--scrolling js-->
-	<script src="js/jquery.nicescroll.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="../makeover_admin/js/jquery.nicescroll.js"></script>
+	<script src="../makeover_admin/js/scripts.js"></script>
 	<!--//scrolling js-->
 	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.js"> </script>
+	<script src="../makeover_admin/js/bootstrap.js"> </script>
 </body>
 </html>
 <?php }  ?>

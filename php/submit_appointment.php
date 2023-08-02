@@ -1,6 +1,7 @@
 <?php
 echo "appointment.php is being executed";
 include '../php/connection.php';
+include '../makeover_admin/includes/dbconnection.php';
 
 $firstName = $_POST['firstname'];
 $lastName = $_POST['lastname'];
@@ -49,8 +50,10 @@ if ($stmt->execute()) {
     echo "Error: " . $stmt->error;
 }
 
-$stmt->close();
+$stmt_tblcustomers->close();
+
 $conn->close();
+$conn_makeover_admin->close();
 
 header("Location: http://localhost/Makeover/html/Appointment.html");
 exit;
