@@ -1,9 +1,11 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/dbconnection.php');
+include('../makeover_admin/includes/dbconnection.php');
+
 if (strlen($_SESSION['bpmsaid']==0)) {
-  header('location:logout.php');
+	header('location: ../makeover_admin/logout.php');
+  
   } else{
 
 
@@ -16,16 +18,16 @@ if (strlen($_SESSION['bpmsaid']==0)) {
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Bootstrap Core CSS -->
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="../makeover_admin/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="../makeover_admin/css/style.css" rel='stylesheet' type='text/css' />
 <!-- font CSS -->
 <!-- font-awesome icons -->
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="../makeover_admin/css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome icons -->
  <!-- js-->
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/modernizr.custom.js"></script>
+<script src="../makeover_admin/js/jquery-1.11.1.min.js"></script>
+<script src="../makeover_admin/js/modernizr.custom.js"></script>
 <!--webfonts-->
 <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <!--//webfonts--> 
