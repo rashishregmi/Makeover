@@ -41,16 +41,16 @@ if(isset($_POST['submit']))
 <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <!--//webfonts--> 
 <!--animate-->
-<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
-<script src="js/wow.min.js"></script>
+<link href="../makeover_admin/css/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="../makeover_admin/js/wow.min.js"></script>
 	<script>
 		 new WOW().init();
 	</script>
 <!--//end-animate-->
 <!-- Metis Menu -->
-<script src="js/metisMenu.min.js"></script>
-<script src="js/custom.js"></script>
-<link href="css/custom.css" rel="stylesheet">
+<script src="../makeover_admin/js/metisMenu.min.js"></script>
+<script src="../makeover_adminjs/custom.js"></script>
+<link href="../makeover_admin/css/custom.css" rel="stylesheet">
 <!--//Metis Menu -->
 </head> 
 <body class="cbp-spmenu-push">
@@ -77,7 +77,7 @@ if(isset($_POST['submit']))
 							<div class="forgot-grid">
 								
 								<div class="forgot">
-									<a href="index.php">Already have an account</a>
+									<a href="../makeover_admin/index.php">Already have an account</a>
 								</div>
 								<div class="clearfix"> </div>
 							</div>
@@ -91,7 +91,7 @@ if(isset($_POST['submit']))
 		
 	</div>
 	<!-- Classie -->
-		<script src="js/classie.js"></script>
+		<script src="../makeover_admin/js/classie.js"></script>
 		<script>
 			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
@@ -111,10 +111,10 @@ if(isset($_POST['submit']))
 			}
 		</script>
 	<!--scrolling js-->
-	<script src="js/jquery.nicescroll.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="../makeover_admin/js/jquery.nicescroll.js"></script>
+	<script src="../makeover_admin/js/scripts.js"></script>
 	<!--//scrolling js-->
 	<!-- Bootstrap Core JavaScript -->
-   <script src="js/bootstrap.js"> </script>
+   <script src="../makeover_admin/js/bootstrap.js"> </script>
 </body>
 </html>
